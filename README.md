@@ -1,29 +1,41 @@
 # baytrailbirding
 
 [![Build Status](https://travis-ci.com/rchunter/baytrailbirding.svg?branch=main)](https://travis-ci.com/rchunter/baytrailbirding)
-<a href="https://codeclimate.com/github/rchunter/baytrailbirding/maintainability"><img src="https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/maintainability" /></a>
-<a href="https://codeclimate.com/github/rchunter/baytrailbirding/test_coverage"><img src="https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/test_coverage" /></a>
-[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_1-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-GH-rchunter_baytrailbirding/main)
+[![Code Maintainability](https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/maintainability)](https://codeclimate.com/github/rchunter/baytrailbirding/maintainability)
+[![Code Coverage](https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/test_coverage)](https://codeclimate.com/github/rchunter/baytrailbirding/test_coverage)
+[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard-informational.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-GH-rchunter_baytrailbirding/main)
+[![Pivotal Tracker](https://img.shields.io/badge/Pivotal-Tracker-informational?logo=pivotal-tracker&logoColor=ffffff)](https://www.pivotaltracker.com/n/projects/2487649)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
 
-Things you may want to cover:
+* Ruby 2.7
+* Bundler 2
 
-* Ruby version
+## Setup
 
-* System dependencies
+Clone the repo, then install needed gems:
 
-* Configuration
+```bash
+$ bundle install
+```
 
-* Database creation
+Then, migrate the database:
 
-* Database initialization
+```bash
+$ bundle exec rails db:migrate
+```
 
-* How to run the test suite
+Then, start the server:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+$ bundle exec rails server
+```
 
-* Deployment instructions
+## Testing
 
-* ...
+To run the Cucumber and RSpec tests:
+
+```bash
+$ bundle exec cucumber
+$ bundle exec rspec
+```
