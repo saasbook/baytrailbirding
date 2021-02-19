@@ -1,0 +1,20 @@
+project:
+  name: baytrailbirding
+  owner: cs169
+  teamId: '1'
+  identities:
+    pivotal:
+      url: 'https://www.pivotaltracker.com/n/projects/2487649'
+    heroku:
+      url: 'https://sleepy-mesa-39329.herokuapp.com/'
+    travis:
+      url: 'https://travis-ci.org/github/rchunter/baytrailbirding'
+    codeclimate:
+      url: 'https://codeclimate.com/github/rchunter/baytrailbirding'
+  members:
+    member1:
+      name: Abishek
+      surname: Chozhan
+      herokuEmail: 'abishekchozhan@berkeley.edu'
+      githubUsername: abishekc
+      pivotalUsername: abishekc
