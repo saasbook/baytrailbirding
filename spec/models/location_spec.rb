@@ -1,18 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe Location, :type => :model do
-  it "is valid with valid attributes" do
-  	new_site = Location.new(name: "Example Location", description: "Lorem Ipsum Dolor Dot")
-  	expect(new_site).to be_valid
-  end
+  subject {
+    described_class.new(name: "Example Location", description: "Lorem Ipsum Dolor Dot", latitude:"0.0", longitude:"0.0")
+  }
 
-  it "is not valid without a name" do
-  	new_site = Location.new(description: "Lorem Ipsum Dolor Dot")
-  	expect(new_site).to_not be_valid
-  end
+  describe "Model Validations" do
+    it "is valid with valid attributes" do
+    	expect(subject).to be_valid
+    end
 
-  it "is not valid without a description" do
-  	new_site = Location.new(name: "Example Location")
-  	expect(new_site).to_not be_valid
+    it "is not valid without a name" do
+    	subject.name = nil
+    	expect(subject).to_not be_valid
+    end
+
+    it "is not valid without a description" do
+    	subject.description = nil
+    	expect(subject).to_not be_valid
+    end
+
+    it "is not valid without a latitude" do
+      subject.latitude = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid without a longitude" do
+      subject.longitude = nil
+      expect(subject).to_not be_valid
+    end
   end
 end
