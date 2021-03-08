@@ -19,5 +19,9 @@ RSpec.describe Facility, :type => :model do
     	subject.icon = nil
     	expect(subject).to_not be_valid
     end
+
+    it "has many locations" do
+      should respond_to(:locations)
+    end
   end
 end

@@ -29,5 +29,9 @@ RSpec.describe Location, :type => :model do
       subject.longitude = nil
       expect(subject).to_not be_valid
     end
+
+    it "has many facilities" do
+      should respond_to(:facilities)
+    end
   end
 end
