@@ -30,6 +30,15 @@
     			left sidebar
 		        <!--<p>random notable sighting<p>
 		        <div id="js-rare_bird_info"></div>-->
+		        <% @locations_full.each do |location| %>
+		        	<div id="location-card" class="card">
+		        		<div class="card-body">
+			        		<h5><%= location.name %></h5>
+			        		<p class="card-text" style="font-size: 14px;"><%= location.description %></p>
+			        	</div>
+		        	</div>
+		        	<br>
+		        <% end %>
     		</div>
 
 
