@@ -48,6 +48,7 @@
 			        	</div>
 		        	</div>
 		        	<br>
+              <%= content_tag :div, class: "j-location_info", data: {loc: location} do %><% end %>
 		        <% end %>
     		</div>
     		<div class="col-md-8">
@@ -58,11 +59,11 @@
               <legend> Form for Dev only 2 decimal points</legend>
               <label for="lat">Latitude</label>
               <br>
-              <input type="text" id="lat" name="lat" value=37.42>
+              <input type="text" id="lat" name="lat" value=37.78>
               <br>
               <label for="lng">Longitude</label>
               <br>
-              <input type="text" class id="lng" name="lng" value=-121.91>
+              <input type="text" class id="lng" name="lng" value=-122.28>
               <br>
               <br>
               <button type="button" onClick="createPos(this.form)" class="btn btn-primary">Submit</button>
@@ -86,6 +87,12 @@
 
     <script>
       $( document ).ready(getLocation)
+      $(document ).ready(function(){
+        $( ".j-location_info" ).each(function() {
+          setLoc($(this).data('loc'));
+        });
+
+      });
       var greenIcon = new L.Icon({
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -102,6 +109,15 @@
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
       });
+      var yellowIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
       var bird_data = null;
       var bird_images = null;
       var mymap = L.map('mapid').setView([37.42, -121.91], 13);
@@ -136,6 +152,17 @@
         mymap.addLayer(marker);
         marker.bindPopup(`<b>${birddata.comName}</b><br />${birddata.sciName}.`).openPopup();
         marker.on('click', markerOnClick);
+        return marker
+      }
+
+      function setLoc(loc_data){
+        marker = new L.Marker(
+          L.latLng(loc_data.latitude, loc_data.longitude),
+          {icon: yellowIcon}
+        );
+        mymap.addLayer(marker);
+        marker.bindPopup(`<b>${loc_data.name}</b><br/>${loc_data.description}.`).openPopup();
+        //marker.on('click', markerOnClick);
         return marker
       }
 
