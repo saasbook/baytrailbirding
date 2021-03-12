@@ -9,6 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,900;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <script
+    src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" type="stylesheets/css" href="main.css">
   </head>
@@ -24,12 +36,14 @@
     	<div class="row">
     		<div class="col-md-2">
     			left sidebar
-          <p>random notable sighting<p>
+          <p>Locations will go here<p>
+          <p>(we have not done this yet)</p>
           <div id="js-rare_bird_info"></div>
     		</div>
     		<div class="col-md-8">
     			map
-
+           <div id="mapid" style="height:500px"></div>
+           <br><br><br><br><br><br><br><br>
           <form>
               <legend> Form for Dev only 2 decimal points</legend>
               <label for="lat">Latitude</label>
@@ -61,27 +75,60 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <script>
       $( document ).ready(getLocation)
+      var greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      var blueIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      var bird_data = null;
+      var bird_images = null;
+      var mymap = L.map('mapid').setView([37.42, -121.91], 13);
+      L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={apikey}', {
+          attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          apikey: 'df20324a5586441197c9410773b4ce60',
+          maxZoom: 22
+       }).addTo(mymap);
 
-      function setContent(response,elem){
+      function setContent(birddata,imgsrc,elem){
         $(elem).empty();
         $(elem).append(
           `
-          <p>Common Name: ${response.birddata.comName}</p>
-          <p>Scientific Name: ${response.birddata.sciName}</p>
-          <p>Location: ${response.birddata.locName}, ${response.birddata.lat},${response.birddata.lng}</p>
-          <p>Sighted: ${response.birddata.obsDt}</p>
-          <img id="bird_photo" class="img-fluid" width="100%" src="${response.imgsrc}">
+          <p>Common Name: ${birddata.comName}</p>
+          <p>Scientific Name: ${birddata.sciName}</p>
+          <p>Location: ${birddata.locName}, ${birddata.lat},${birddata.lng}</p>
+          <p>Sighted: ${birddata.obsDt}</p>
+          <img id="bird_photo" class="img-fluid" width="100%" src="${imgsrc}">
           <figcaption>Wikimedia Image</figcaption>
           <p>
-          <a href="ebird.org/species/${response.birddata.speciesCode}" id="myLink">View on Ebird</a>
+          <a href="ebird.org/species/${birddata.speciesCode}" id="myLink">View on Ebird</a>
           </p>
           `
           );
+      }
+
+      function setMarker(birddata, index){
+        marker = new L.Marker(
+          L.latLng(birddata.lat, birddata.lng),
+          {name: `bird_marker_${index}`, icon: blueIcon}
+        );
+        mymap.addLayer(marker);
+        marker.bindPopup(`<b>${birddata.comName}</b><br />${birddata.sciName}.`).openPopup();
+        marker.on('click', markerOnClick);
+        return marker
       }
 
       function getLocation(){
@@ -91,14 +138,28 @@
           console.log("no Location");
         }
       }
+      function markerOnClick(e){
+        i = this.options.name.slice(-1);
+        setContent(bird_data[i],bird_images[i],$("#js-com_bird_info"));
+      }
 
       function createPos(form){
         pos = {'coords':{'latitude':parseFloat(form.lat.value),'longitude':parseFloat(form.lng.value)}}
         parrallelHitEbirdEndpoint(pos)
       }
       async function parrallelHitEbirdEndpoint(pos){
+
+        cur_pos = new L.LatLng(pos.coords.latitude, pos.coords.longitude)
+        mymap.panTo(cur_pos);
+
+        marker = new L.Marker(cur_pos,{icon: greenIcon});
+        mymap.addLayer(marker);
+        marker.bindPopup(`<b>You are here</b>`).openPopup();
+
+
         hitEbirdEndpoint(pos, false);
-        hitEbirdEndpoint(pos, true);
+        //hitEbirdEndpoint(pos, true);
+
       }
       function hitEbirdEndpoint(pos, rare=false){
         var settings = {"url": "/ebird",
@@ -109,15 +170,26 @@
                             "lat": pos.coords.latitude,
                             "lng": pos.coords.longitude,
                             "rare":rare,
-                            "num_req":100
+                            "num_req":100,
+                            "num_ret":10
                             }
                         }
         $.ajax(settings).done(function (response) {
           console.log(response);
           if(rare){
             setContent(response,$("#js-rare_bird_info"));
+
           }else{
-            setContent(response,$("#js-com_bird_info"));
+            markers = []
+            bird_data = response.birddata;
+            bird_images = response.imgsrc;
+            var arrayLength = bird_data.length;
+            for (var i = 0; i < arrayLength; i++) {
+              setContent(bird_data[i],bird_images[i],$("#js-com_bird_info"));
+              markers.push(setMarker(bird_data[i],i))
+            }
+            var group = new L.featureGroup(markers);
+            mymap.fitBounds(group.getBounds().pad(0.2));
           }
 
         });
