@@ -22,18 +22,107 @@
     		</div>
     	</div>
     	<div class="row">
-    		<div class="col-md-3">
-    			sidebar
+    		<div class="col-md-2">
+    			left sidebar
+          <p>random notable sighting<p>
+          <div id="js-rare_bird_info"></div>
     		</div>
-    		<div class="col-md-9">
+    		<div class="col-md-8">
     			map
+
+          <form>
+              <legend> Form for Dev only 2 decimal points</legend>
+              <label for="lat">Latitude</label>
+              <br>
+              <input type="text" id="lat" name="lat" value=37.42>
+              <br>
+              <label for="lng">Longitude</label>
+              <br>
+              <input type="text" class id="lng" name="lng" value=-121.91>
+              <br>
+              <br>
+              <button type="button" onClick="createPos(this.form)" class="btn btn-primary">Submit</button>
+          </form>
+
+    		</div>
+
+        <div class="col-md-2">
+
+    			right sidebar
+          <p>random normal sighting<p>
+          <div id="js-com_bird_info"></div>
+
     		</div>
     	</div>
     </div>
 
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      $( document ).ready(getLocation)
+
+      function setContent(response,elem){
+        $(elem).empty();
+        $(elem).append(
+          `
+          <p>Common Name: ${response.birddata.comName}</p>
+          <p>Scientific Name: ${response.birddata.sciName}</p>
+          <p>Location: ${response.birddata.locName}, ${response.birddata.lat},${response.birddata.lng}</p>
+          <p>Sighted: ${response.birddata.obsDt}</p>
+          <img id="bird_photo" class="img-fluid" width="100%" src="${response.imgsrc}">
+          <figcaption>Wikimedia Image</figcaption>
+          <p>
+          <a href="ebird.org/species/${response.birddata.speciesCode}" id="myLink">View on Ebird</a>
+          </p>
+          `
+          );
+      }
+
+      function getLocation(){
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(parrallelHitEbirdEndpoint);
+        } else {
+          console.log("no Location");
+        }
+      }
+
+      function createPos(form){
+        pos = {'coords':{'latitude':parseFloat(form.lat.value),'longitude':parseFloat(form.lng.value)}}
+        parrallelHitEbirdEndpoint(pos)
+      }
+      async function parrallelHitEbirdEndpoint(pos){
+        hitEbirdEndpoint(pos, false);
+        hitEbirdEndpoint(pos, true);
+      }
+      function hitEbirdEndpoint(pos, rare=false){
+        var settings = {"url": "/ebird",
+                        "method": "POST",
+                        "timeout": 0,
+                        "data":{
+                            "authenticity_token" : "<%= form_authenticity_token %>",
+                            "lat": pos.coords.latitude,
+                            "lng": pos.coords.longitude,
+                            "rare":rare,
+                            "num_req":100
+                            }
+                        }
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+          if(rare){
+            setContent(response,$("#js-rare_bird_info"));
+          }else{
+            setContent(response,$("#js-com_bird_info"));
+          }
+
+        });
+      }
+
+    </script>
   </body>
 </html>
