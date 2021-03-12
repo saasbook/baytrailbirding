@@ -1,4 +1,4 @@
-require 'net/http'
+require 'typhoeus'
 require 'json'
 include ActionView::Helpers::NumberHelper
 
@@ -16,7 +16,13 @@ module EbirdHelper
       url = "https://api.ebird.org/v2/data/obs/geo/recent/notable"
     end
 
-    body = HTTP["X-eBirdApiToken" => "a9qvaguuedjc"].get(url, :params => ebird_params).body
+    r = Typhoeus.get(url,
+        headers: {"X-eBirdApiToken" => "a9qvaguuedjc"},
+        params: ebird_params
+    )
+
+    body = r.body
+
 
     bird_data = JSON.parse(body).sample(num_ret)
 
@@ -45,26 +51,26 @@ module EbirdHelper
   #
   # Returns the distance between these two
   # points in either miles or kilometers
-  #def haversine_distance(geo_a, geo_b, miles=false)
-  #  # Get latitude and longitude
-  #  lat1, lon1 = geo_a
-  #  lat2, lon2 = geo_b
+  def haversine_distance(geo_a, geo_b, miles=false)
+    # Get latitude and longitude
+    lat1, lon1 = geo_a
+    lat2, lon2 = geo_b
 
-  #  # Calculate radial arcs for latitude and longitude
-  #  dLat = (lat2 - lat1) * Math::PI / 180
-  #  dLon = (lon2 - lon1) * Math::PI / 180
+    # Calculate radial arcs for latitude and longitude
+    dLat = (lat2 - lat1) * Math::PI / 180
+    dLon = (lon2 - lon1) * Math::PI / 180
 
 
-  #  a = Math.sin(dLat / 2) *
-  #      Math.sin(dLat / 2) +
-  #      Math.cos(lat1 * Math::PI / 180) *
-  #      Math.cos(lat2 * Math::PI / 180) *
-  #      Math.sin(dLon / 2) * Math.sin(dLon / 2)
-  #
-  #   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+    a = Math.sin(dLat / 2) *
+        Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math::PI / 180) *
+        Math.cos(lat2 * Math::PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2)
 
-  #  d = 6371 * c * (miles ? 1 / 1.6 : 1)
-  #end
+     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+
+    d = 6371 * c * (miles ? 1 / 1.6 : 1)
+  end
 
 
   def getImageSrc(bird_data)
@@ -96,7 +102,8 @@ module EbirdHelper
       :redirects => 1
     }
 
-    body = HTTP.get("https://en.wikipedia.org/w/api.php", :params => wikimedia_params).body
+    r = Typhoeus.get("https://en.wikipedia.org/w/api.php", params: wikimedia_params)
+    body = r.body
     image_data = JSON.parse(body)
 
     image_pages = image_data["query"]["pages"]

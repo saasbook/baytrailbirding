@@ -16,8 +16,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem "http", '~> 4.4'
-
+gem "typhoeus"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -45,6 +44,8 @@ group :production do
 end
 
 group :test do
+  gem 'webmock'
+  gem 'vcr'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'simplecov', :require => false

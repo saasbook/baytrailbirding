@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ebird.org/v2/data/obs/geo/recent/?lat=37.42&lng=-121.91&maxResults=1&back=10&dist=25
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      X-eBirdApiToken:
+      - a9qvaguuedjc
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Fri, 12 Mar 2021 03:39:55 GMT
+      expires:
+      - '0'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '280'
+    body:
+      encoding: UTF-8
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4309025","locName":"Central Park","obsDt":"2021-03-11
+        13:56","howMany":30,"lat":37.3427558,"lng":-121.975193,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S83210166"}]'
+    http_version: '2'
+    adapter_metadata:
+      effective_url: https://api.ebird.org/v2/data/obs/geo/recent/?lat=37.42&lng=-121.91&maxResults=1&back=10&dist=25
+  recorded_at: Fri, 12 Mar 2021 03:39:53 GMT
+- request:
+    method: get
+    uri: https://api.ebird.org/v2/data/obs/geo/recent/?back=10&dist=25&lat=37.42&lng=-121.91&maxResults=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      X-Ebirdapitoken:
+      - a9qvaguuedjc
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Fri, 12 Mar 2021 03:39:55 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      - Access-Control-Request-Headers
+      - Access-Control-Request-Method
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '280'
+    body:
+      encoding: UTF-8
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4309025","locName":"Central Park","obsDt":"2021-03-11
+        13:56","howMany":30,"lat":37.3427558,"lng":-121.975193,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S83210166"}]'
+  recorded_at: Fri, 12 Mar 2021 03:39:53 GMT
+recorded_with: VCR 6.0.0
