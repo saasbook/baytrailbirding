@@ -21,8 +21,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" type="stylesheets/css" href="main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="stylesheets/css" href="main.css">
   </head>
 
 
@@ -71,9 +71,11 @@
 	    	</div>
 
 	        <div class="col-md-2">
-	    		right sidebar
-	          	<p>random normal sighting</p>
-	          	<div id="js-com_bird_info"></div>
+
+                   <div id="js-com_bird_info" class="card">
+                  </div>
+
+
 	    	</div>
     	</div>
 
@@ -131,15 +133,14 @@
         $(elem).empty();
         $(elem).append(
           `
-          <p>Common Name: ${birddata.comName}</p>
-          <p>Scientific Name: ${birddata.sciName}</p>
-          <p>Location: ${birddata.locName}, ${birddata.lat},${birddata.lng}</p>
-          <p>Sighted: ${birddata.obsDt}</p>
-          <img id="bird_photo" class="img-fluid" width="100%" src="${imgsrc}">
-          <figcaption>Wikimedia Image</figcaption>
-          <p>
-          <a href="ebird.org/species/${birddata.speciesCode}" id="myLink">View on Ebird</a>
-          </p>
+          <img class="card-img-top" src="${imgsrc}">
+          <div class="card-body">
+            <h5 class="card-title">${birddata.comName}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${birddata.sciName}</h6>
+            <p class="card-text">${birddata.distTo} miles away, at ${birddata.locName}</p>
+            <p class="card-text">reported ${ moment(birddata.obsDt).fromNow()  }</p>
+          </div>
+          <a href="https://ebird.org/species/${birddata.speciesCode}" class="btn btn-primary">View On Ebird</a>
           `
           );
       }
