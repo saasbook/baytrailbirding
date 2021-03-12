@@ -24,6 +24,8 @@
 
 	<link rel="stylesheet" type="stylesheets/css" href="main.css">
   </head>
+
+
   <body>
     <div class="container-fluid">
     	<div class="row">
@@ -33,12 +35,12 @@
     			</div>
     		</div>
     	</div>
+
+
     	<div class="row">
     		<div class="col-md-2">
     			left sidebar
-          <p>Locations will go here<p>
-          <p>(we have not done this yet)</p>
-          <div id="js-rare_bird_info"></div>
+          
     		</div>
     		<div class="col-md-8">
     			map
@@ -58,16 +60,32 @@
               <button type="button" onClick="createPos(this.form)" class="btn btn-primary">Submit</button>
           </form>
 
-    		</div>
 
-        <div class="col-md-2">
+	    	<div class="col-md-8">
+	    		map
 
-    			right sidebar
-          <p>random normal sighting<p>
-          <div id="js-com_bird_info"></div>
+	          <form>
+	              <legend> Form for Dev only 2 decimal points</legend>
+	              <label for="lat">Latitude</label>
+	              <br>
+	              <input type="text" id="lat" name="lat" value=37.42>
+	              <br>
+	              <label for="lng">Longitude</label>
+	              <br>
+	              <input type="text" class id="lng" name="lng" value=-121.91>
+	              <br>
+	              <br>
+	              <button type="button" onClick="createPos(this.form)" class="btn btn-primary">Submit</button>
+	          </form>
+	    	</div>
 
-    		</div>
+	        <div class="col-md-2">
+	    		right sidebar
+	          	<p>random normal sighting</p>
+	          	<div id="js-com_bird_info"></div>
+	    	</div>
     	</div>
+
     </div>
 
 
