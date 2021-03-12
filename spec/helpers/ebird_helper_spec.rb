@@ -18,7 +18,7 @@ RSpec.describe EbirdHelper, type: :helper do
         lat = 37.42
         lng = -121.91
         bird = getBirdData(lat,lng,1,1).first;
-        expect(haversine_distance([lat,lng],[bird.lat,bird.lng],true)).to be <= 25
+        expect(haversine_distance([lat,lng],[bird["lat"],bird["lng"]],true)).to be <= 25
 
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe EbirdHelper, type: :helper do
       VCR.use_cassette('ebird/get_image_from_name') do
         name = "Canada Goose"
         image = getImageFromName(name);
-        expect(true).to be true
+        expect(image).to eq "https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg"
 
       end
     end

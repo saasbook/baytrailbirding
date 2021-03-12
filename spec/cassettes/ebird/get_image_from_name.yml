@@ -2,24 +2,22 @@
 http_interactions:
 - request:
     method: get
-    uri: https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=Canada%20Goose&redirects=1
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Canada+Goose
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
-      Expect:
-      - ''
+      - Faraday v1.3.0
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       date:
-      - Fri, 12 Mar 2021 04:02:52 GMT
+      - Fri, 12 Mar 2021 04:43:06 GMT
       server:
-      - mw1376.eqiad.wmnet
+      - mw1313.eqiad.wmnet
       x-content-type-options:
       - nosniff
       p3p:
@@ -34,13 +32,13 @@ http_interactions:
       cache-control:
       - private, must-revalidate, max-age=0
       x-request-id:
-      - YErn7NXBtPmp8d7-iu8y7AAAAI4
+      - YErxWvjka@WG@Gek9xlfIwAAAEQ
       content-type:
       - application/json; charset=utf-8
       age:
       - '0'
       x-cache:
-      - cp4032 miss, cp4029 pass
+      - cp4029 miss, cp4029 pass
       x-cache-status:
       - pass
       server-timing:
@@ -55,92 +53,20 @@ http_interactions:
         0.0}'
       set-cookie:
       - WMF-Last-Access=12-Mar-2021;Path=/;HttpOnly;secure;Expires=Tue, 13 Apr 2021
-        00:00:00 GMT
-      - WMF-Last-Access-Global=12-Mar-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Tue,
-        13 Apr 2021 00:00:00 GMT
-      - GeoIP=US:CA:Capitola:36.97:-121.95:v4; Path=/; secure; Domain=.wikipedia.org
+        00:00:00 GMT, WMF-Last-Access-Global=12-Mar-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Tue,
+        13 Apr 2021 00:00:00 GMT, GeoIP=US:CA:Capitola:36.97:-121.95:v4; Path=/; secure;
+        Domain=.wikipedia.org
       x-client-ip:
       - 23.119.166.17
       accept-ranges:
       - bytes
       content-length:
-      - '311'
+      - '242'
+      connection:
+      - keep-alive
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"batchcomplete":"","query":{"redirects":[{"from":"Canada Goose","to":"Canada
         goose"}],"pages":{"218972":{"pageid":218972,"ns":0,"title":"Canada goose","original":{"source":"https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg","width":4281,"height":3256}}}}}'
-    http_version: '2'
-    adapter_metadata:
-      effective_url: https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=Canada%20Goose&redirects=1
-  recorded_at: Fri, 12 Mar 2021 04:02:50 GMT
-- request:
-    method: get
-    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Canada%20Goose
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: ''
-    headers:
-      Date:
-      - Fri, 12 Mar 2021 04:02:52 GMT
-      Server:
-      - mw1376.eqiad.wmnet
-      X-Content-Type-Options:
-      - nosniff
-      P3p:
-      - CP="See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P for more
-        info."
-      X-Frame-Options:
-      - SAMEORIGIN
-      Content-Disposition:
-      - inline; filename=api-result.json
-      Vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
-      Cache-Control:
-      - private, must-revalidate, max-age=0
-      X-Request-Id:
-      - YErn7NXBtPmp8d7-iu8y7AAAAI4
-      Content-Type:
-      - application/json; charset=utf-8
-      Age:
-      - '0'
-      X-Cache:
-      - cp4032 miss, cp4029 pass
-      X-Cache-Status:
-      - pass
-      Server-Timing:
-      - cache;desc="pass"
-      Strict-Transport-Security:
-      - max-age=106384710; includeSubDomains; preload
-      Report-To:
-      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
-        }] }'
-      Nel:
-      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
-        0.0}'
-      Set-Cookie:
-      - GeoIP=US:CA:Capitola:36.97:-121.95:v4; Path=/; secure; Domain=.wikipedia.org
-      - WMF-Last-Access-Global=12-Mar-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Tue,
-        13 Apr 2021 00:00:00 GMT
-      - WMF-Last-Access=12-Mar-2021;Path=/;HttpOnly;secure;Expires=Tue, 13 Apr 2021
-        00:00:00 GMT
-      X-Client-Ip:
-      - 23.119.166.17
-      Accept-Ranges:
-      - bytes
-      Content-Length:
-      - '311'
-    body:
-      encoding: UTF-8
-      string: '{"batchcomplete":"","query":{"redirects":[{"from":"Canada Goose","to":"Canada
-        goose"}],"pages":{"218972":{"pageid":218972,"ns":0,"title":"Canada goose","original":{"source":"https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg","width":4281,"height":3256}}}}}'
-  recorded_at: Fri, 12 Mar 2021 04:02:50 GMT
+  recorded_at: Fri, 12 Mar 2021 04:43:04 GMT
 recorded_with: VCR 6.0.0

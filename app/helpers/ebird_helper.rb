@@ -1,4 +1,4 @@
-require 'typhoeus'
+require 'faraday'
 require 'json'
 include ActionView::Helpers::NumberHelper
 
@@ -12,19 +12,19 @@ module EbirdHelper
                     }
 
     url = "https://api.ebird.org/v2/data/obs/geo/recent/"
-    if rare
+    if rare == true
       url = "https://api.ebird.org/v2/data/obs/geo/recent/notable"
     end
 
-    r = Typhoeus.get(url,
-        headers: {"X-eBirdApiToken" => "a9qvaguuedjc"},
-        params: ebird_params
-    )
+    resp = Faraday.get(url) do |req|
+      req.params = ebird_params
+      req.headers = {"X-eBirdApiToken" => "a9qvaguuedjc"}
+    end
 
-    body = r.body
+    body = resp.body
 
 
-    bird_data = JSON.parse(body).sample(num_ret)
+    bird_data = select_random_birds(JSON.parse(body),num_ret)
 
 
     #bird_data = addBirdDist(lat, lng, bird_data)
@@ -32,7 +32,12 @@ module EbirdHelper
     return bird_data
 
   end
+  #need to make new function to stub it dumb hate this
+  def select_random_birds(birds, num_ret)
 
+    birds.sample(num_ret)
+
+  end
   #def addBirdDist(lat,lng,bird_data)
   #    bird_data.map {|x| haversine_distance_wrapper(x,3)}
   #    haversine_distance(lat,lng,bird_data)
@@ -102,8 +107,12 @@ module EbirdHelper
       :redirects => 1
     }
 
-    r = Typhoeus.get("https://en.wikipedia.org/w/api.php", params: wikimedia_params)
-    body = r.body
+
+    resp = Faraday.get("https://en.wikipedia.org/w/api.php") do |req|
+      req.params = wikimedia_params
+    end
+
+    body = resp.body
     image_data = JSON.parse(body)
 
     image_pages = image_data["query"]["pages"]

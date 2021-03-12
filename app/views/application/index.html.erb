@@ -108,7 +108,8 @@
                             "authenticity_token" : "<%= form_authenticity_token %>",
                             "lat": pos.coords.latitude,
                             "lng": pos.coords.longitude,
-                            "rare":rare
+                            "rare":rare,
+                            "num_req":100
                             }
                         }
         $.ajax(settings).done(function (response) {
