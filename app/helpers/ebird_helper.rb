@@ -28,7 +28,11 @@ module EbirdHelper
 
 
     #bird_data = addBirdDist(lat, lng, bird_data)
-
+    bird_data.each do |bird|
+      bird["distTo"] = number_with_precision(haversine_distance([lat.to_f,lng.to_f],
+                                          [ bird["lat"].to_f,bird["lng"].to_f],
+                                          true), precision: 1);
+    end
     return bird_data
 
   end

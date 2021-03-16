@@ -11,3 +11,19 @@ html, body {
 	height: parent;
 	padding-left: 100px;
 }
+
+#location-name {
+	font-family: "Playfair";
+	font-weight: 600;
+}
+
+#location-card {
+	max-height: 150px;
+	overflow: hidden;
+	transition: max-height 0.75s ease-in-out;
+}
+
+#location-card:hover{
+	max-height: 500px;
+	transition: max-height 0.75s ease-in-out;
+}
