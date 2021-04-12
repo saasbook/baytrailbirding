@@ -4,6 +4,9 @@ class CreateLocations < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :website
       t.text :description
+      t.string :picURL
+      t.string :websiteURL
+      t.text :short_desc
 
       t.timestamps
     end
