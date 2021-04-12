@@ -2,7 +2,7 @@ Then(/^I should see the organization name$/) do
   expect(page).to have_content("BIRDING THE BAY TRAIL")
 end
 
-Then(/^I should see the sidebar placeholder$/) do
+Then(/^I should see the sidebar cards$/) do
   expect(page).to have_content("sidebar")
 end
 

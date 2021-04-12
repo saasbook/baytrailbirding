@@ -40,6 +40,7 @@
     	<div class="row">
     		<div class="col-md-2">
     			left sidebar
+          <%= link_to 'Show All Locations', locations_path %>
 		        <% @locations_full.each do |location| %>
 		        	<div id="location-card" class="card">
 		        		<div class="card-body">

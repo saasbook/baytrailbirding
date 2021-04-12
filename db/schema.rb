@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2021_03_08_021910) do
     t.string "name"
     t.string "website"
     t.text "description"
+    t.string "picURL"
+    t.string "websiteURL"
+    t.text "short_desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "latitude"
