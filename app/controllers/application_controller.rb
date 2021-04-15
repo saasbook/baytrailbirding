@@ -45,4 +45,6 @@ class ApplicationController < ActionController::Base
     end
     return img_src
   end
+
+  helper_method :haversine_distance
 end
