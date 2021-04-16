@@ -1,4 +1,4 @@
-Feature: Homepage Layoute
+Feature: Homepage Layout
   As a product manager
   I want users to see the fully loaded homepage
   So that they are able to use the app succesfully
