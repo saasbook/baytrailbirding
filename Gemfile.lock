@@ -135,6 +135,7 @@ GEM
     faraday-net_http (1.0.1)
     ffi (1.14.2)
     formatador (0.2.5)
+    geocoder (1.6.6)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.16.2)
@@ -320,9 +321,11 @@ DEPENDENCIES
   cucumber-rails-training-wheels
   database_cleaner
   faraday
+  geocoder
   guard-rspec
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mimemagic (~> 0.3.10)
   pg (~> 1.2)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

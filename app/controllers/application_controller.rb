@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   def show
   	@locations_full = Location.all
   	# @distance = haversine_distance([120, 10],[120, 12], true)
-    @current_location = [120, 10] # Replace w/ user coords
+    sample_user_IP = '67.170.238.57' # Still need to find this dynamically for users. 
+    results = Geocoder.search(sample_user_IP)
+    @current_location = results.first.coordinates
+    
   end
 
   def haversine_distance(geo_a, geo_b, miles=false)
