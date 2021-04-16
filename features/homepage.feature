@@ -6,5 +6,5 @@ Feature: Homepage Layoute
   Scenario: User sees all elements of the homepage.
     When I go to the homepage
     Then I should see the organization name
-    Then I should see the sidebar cards
+    Then I should see the side navigation bar
     Then I should see the map placeholder
