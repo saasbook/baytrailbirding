@@ -185,14 +185,13 @@
         pos = {'coords':{'latitude':parseFloat(form.lat.value),'longitude':parseFloat(form.lng.value)}}
         parrallelHitEbirdEndpoint(pos)
       }
+      
       async function parrallelHitEbirdEndpoint(pos){
         cur_pos = new L.LatLng(pos.coords.latitude, pos.coords.longitude)
         mymap.panTo(cur_pos);
         marker = new L.Marker(cur_pos,{icon: greenIcon});
         mymap.addLayer(marker);
         marker.bindPopup(`<b>You are here</b>`).openPopup();
-
-
         hitEbirdEndpoint(pos, false);
         //hitEbirdEndpoint(pos, true);
 

@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 
   def show
   	@locations_full = Location.all
-  	@distance = haversine_distance([120, 10],[120, 12], true)
+  	# @distance = haversine_distance([120, 10],[120, 12], true)
+    @current_location = [120, 10] # Replace w/ user coords
   end
 
   def haversine_distance(geo_a, geo_b, miles=false)

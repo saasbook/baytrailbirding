@@ -39,9 +39,8 @@
 			        	<div class="card">
 			        		<img class="card-img-top" src="<%= location.picURL %>" />
 			        		<div class="card-body">
-
 				        		<h5 id="location-name"><%= location.name %></h5>
-				        		<h5><%= number_with_precision(haversine_distance([location.latitude.to_f, location.longitude.to_f], [120, 10]), precision: 2) %> mi</h5>
+				        		<h5><%= number_with_precision(haversine_distance([location.latitude.to_f, location.longitude.to_f], @current_location), precision: 2) %> mi</h5>
 				        		<p class="card-text" style="font-size: 14px;"><%= location.description %></p>
 				        	</div>
 				        	<div class="card-footer">
