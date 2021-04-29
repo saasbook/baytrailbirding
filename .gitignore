@@ -34,9 +34,6 @@
 
 # Ignore coverage
 /coverage/
-<<<<<<< HEAD
 
 # Ignore Gem Installation Files
 /vendor/
-=======
->>>>>>> 7591087329895fc2a6b44bf471a33cceaf23e2f5
