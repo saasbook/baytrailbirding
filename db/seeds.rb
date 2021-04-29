@@ -103,7 +103,7 @@ locations = Location.create([{name: "Heron's Head Park",
  							short_desc: "Several hotspots at the southern end of the bay include parts of Don Edwards San Francisco Bay National 
  							Wildlife Refuge, Alviso Marina County Park, and nearby grasslands.",
  							websiteURL: "https://www.sccgov.org/sites/parks/parkfinder/Pages/AlvisoMarina.aspx",
- 							picURL: "https://lh3.googleusercontent.com/proxy/tfy5iVX41Zz9PfH0K_8ZUudlKnRh-z-s6eYitM61X5nzi-QLumvqhO1PhmQkpaPPP9RKzbG-OPSk-TBBHgzNJInJ4Y5SdzXaZJFcH9d-I9nhU8Rrd",
+ 							picURL: "https://www.sccgov.org/sites/parks/parkfinder/PublishingImages/AlvisoBoardwalk.jpg",
  							latitude: "37.430259", longitude: "-121.979093"}, 
 
  							{name: "Ravenswood Salt Pond SF2",
