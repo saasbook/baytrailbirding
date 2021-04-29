@@ -31,29 +31,36 @@
     	<div class="row">
     		<div class="col-md-12 navigation">
     			<div id="logo">
-    				BIRDING THE BAY TRAIL
+    				<center><h2>BIRDING THE BAY TRAIL<h2></center>
+            <hr>
     			</div>
     		</div>
     	</div>
-
-
     	<div class="row">
     		<div class="col-md-2">
-    			left sidebar
-          <%= link_to 'Show All Locations', locations_path %>
-		        <% @locations_full.each do |location| %>
-		        	<div id="location-card" class="card">
-		        		<div class="card-body">
-			        		<h5 id="location-name"><%= location.name %></h5>
-			        		<p class="card-text" style="font-size: 14px;"><%= location.description %></p>
-			        	</div>
-		        	</div>
-		        	<br>
-              <%= content_tag :div, class: "j-location_info", data: {loc: location} do %><% end %>
-		        <% end %>
+          <div class="row">
+            <h5>Nearby Locations</h5>
+          </div>
+          <div class="row">
+            <%= link_to 'Show All Locations', locations_path%>
+          </div>
+          <div class="row">
+            <div id="nearby-locations-sidenav" class="sidenav">
+              <% @locations_full.each do |location| %> 
+                <div id="location-card" class="card">
+                  <div class="card-body">
+                    <h5 id="location-name"><%= location.name %></h5>
+                    <p class="card-text" style="font-size: 14px;"><%= location.description %></p>
+                  </div>
+                </div>
+                <br>
+                <%= content_tag :div, class: "j-location_info", data: {loc: location} do %><% end %>
+              <% end %>
+            </div>
+          </div>
     		</div>
+
     		<div class="col-md-8">
-    			map
            <div id="mapid" style="height:500px"></div>
            <br><br><br><br><br><br><br><br>
           <form>
@@ -143,7 +150,7 @@
           </div>
           <a href="https://ebird.org/species/${birddata.speciesCode}" class="btn btn-primary">View On Ebird</a>
           `
-          );
+        );
       }
 
       function setMarker(birddata, index){
@@ -170,7 +177,7 @@
 
       function getLocation(){
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(parrallelHitEbirdEndpoint);
+          navigator.geolocation.getCurrentPosition(parallelHitEbirdEndpoint);
         } else {
           console.log("no Location");
         }
@@ -182,10 +189,10 @@
 
       function createPos(form){
         pos = {'coords':{'latitude':parseFloat(form.lat.value),'longitude':parseFloat(form.lng.value)}}
-        parrallelHitEbirdEndpoint(pos)
+        parallelHitEbirdEndpoint(pos)
       }
-      async function parrallelHitEbirdEndpoint(pos){
 
+      async function parallelHitEbirdEndpoint(pos){
         cur_pos = new L.LatLng(pos.coords.latitude, pos.coords.longitude)
         mymap.panTo(cur_pos);
 
@@ -215,7 +222,6 @@
           console.log(response);
           if(rare){
             setContent(response,$("#js-rare_bird_info"));
-
           }else{
             markers = []
             bird_data = response.birddata;
