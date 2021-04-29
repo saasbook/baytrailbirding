@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Location, :type => :model do
   subject {
-    described_class.new(name: "Example Location", description: "Lorem Ipsum Dolor Dot", latitude:"0.0", longitude:"0.0", short_desc:"Lorem Ipsdum Dolor Dot")
+    described_class.new(name: "Example Location", description: "Lorem Ipsum Dolor Dot", latitude:"0.0", longitude:"0.0", short_desc:"Lorem Ipsdum Dolor Dot", picURL:"www.google.com")
   }
 
   describe "Model Validations" do
