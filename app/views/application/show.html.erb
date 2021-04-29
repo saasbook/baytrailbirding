@@ -27,12 +27,20 @@
 	<body>
 		<div class="container">
 			<div class="row">
-    		<div class="col-md-12 navigation" style="padding: 0 !important;">
-    			<div id="logo">
-    				ALL LOCATIONS
-    			</div>
-    		</div>
-    		</div>
+				<div class="col-md-12 navigation" style="padding: 0 !important;">
+					
+					<div id="logo">
+						<center>
+							<h2 style="margin-bottom: 0;"><%= link_to 'BIRDING THE BAY TRAIL', root_path, {:style=>'color:#000000; text-decoration:none;', } %>
+							</h2>
+							
+							ALL LOCATIONS
+						</center>
+						<hr>
+						
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="card-columns">
 					<% @locations_full.each do |location| %>
