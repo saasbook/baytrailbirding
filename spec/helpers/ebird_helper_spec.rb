@@ -18,7 +18,7 @@ RSpec.describe EbirdHelper, type: :helper do
         lat = 37.42
         lng = -121.91
         bird = getBirdData(lat,lng,1,1).first;
-        expect(haversine_distance([lat,lng],[bird["lat"],bird["lng"]],true)).to be <= 25
+        expect(hav_distance([lat,lng],[bird["lat"],bird["lng"]],true)).to be <= 25
 
       end
     end

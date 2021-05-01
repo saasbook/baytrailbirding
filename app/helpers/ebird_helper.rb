@@ -29,7 +29,7 @@ module EbirdHelper
 
     #bird_data = addBirdDist(lat, lng, bird_data)
     bird_data.each do |bird|
-      bird["distTo"] = number_with_precision(haversine_distance([lat.to_f,lng.to_f],
+      bird["distTo"] = number_with_precision(hav_distance([lat.to_f,lng.to_f],
                                           [ bird["lat"].to_f,bird["lng"].to_f],
                                           true), precision: 1);
     end
@@ -46,6 +46,27 @@ module EbirdHelper
   #    bird_data.map {|x| haversine_distance_wrapper(x,3)}
   #    haversine_distance(lat,lng,bird_data)
   #end
+
+  def hav_distance(geo_a, geo_b, miles=false)
+    # Get latitude and longitude
+    lat1, lon1 = geo_a
+    lat2, lon2 = geo_b
+
+    # Calculate radial arcs for latitude and longitude
+    dLat = (lat2 - lat1) * Math::PI / 180
+    dLon = (lon2 - lon1) * Math::PI / 180
+
+
+    a = Math.sin(dLat / 2) *
+        Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math::PI / 180) *
+        Math.cos(lat2 * Math::PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2)
+
+     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+
+    d = 6371 * c * (miles ? 1 / 1.6 : 1)
+  end
 
   def getImageSrc(bird_data)
     img_src = 'never set'
