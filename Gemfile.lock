@@ -139,6 +139,7 @@ GEM
     faraday-net_http_persistent (1.1.0)
     ffi (1.15.0)
     formatador (0.2.5)
+    geocoder (1.6.6)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.16.2)
@@ -174,13 +175,13 @@ GEM
     middleware (0.1.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0225)
+    mime-types-data (3.2021.0212)
     mimemagic (0.3.10)
       nokogiri (~> 1)
       rake
-    mini_mime (1.0.3)
-    mini_portile2 (2.5.1)
-    minitest (5.14.4)
+    mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
+    minitest (5.14.3)
     msgpack (1.4.2)
     multi_test (0.1.2)
     multipart-post (2.1.1)
@@ -323,6 +324,7 @@ DEPENDENCIES
   cucumber-rails-training-wheels
   database_cleaner
   faraday
+  geocoder
   guard-rspec
   jbuilder (~> 2.7)
   listen (~> 3.3)

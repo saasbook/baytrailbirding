@@ -20,7 +20,6 @@
     position: absolute; /* Fixed Sidebar (stay in place on scroll) */
     overflow-y: scroll;
 }
-
 .link_colored {
     color: white;
 }

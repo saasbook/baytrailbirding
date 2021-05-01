@@ -185,6 +185,7 @@
           console.log("no Location");
         }
       }
+
       function markerOnClick(e){
         i = this.options.name.slice(-1);
         setContent(bird_data[i],bird_images[i],$("#js-com_bird_info"));
@@ -195,15 +196,13 @@
         parallelHitEbirdEndpoint(pos)
       }
 
+
       async function parallelHitEbirdEndpoint(pos){
         cur_pos = new L.LatLng(pos.coords.latitude, pos.coords.longitude)
         mymap.panTo(cur_pos);
-
         marker = new L.Marker(cur_pos,{icon: greenIcon});
         mymap.addLayer(marker);
         marker.bindPopup(`<b>You are here</b>`).openPopup();
-
-
         hitEbirdEndpoint(pos, false);
         //hitEbirdEndpoint(pos, true);
 

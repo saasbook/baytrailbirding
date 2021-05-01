@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
 
   def show
   	@locations_full = Location.all
-  	@distance = haversine_distance([120, 10],[120, 12], true)
+  	# @distance = haversine_distance([120, 10],[120, 12], true)
+    sample_user_IP = '67.170.238.57'
+    user_IP = request.remote_ip 
+    results = Geocoder.search(user_IP)
+    @current_location = results.first.coordinates
+    
   end
 
   def haversine_distance(geo_a, geo_b, miles=false)
@@ -45,4 +50,6 @@ class ApplicationController < ActionController::Base
     end
     return img_src
   end
+
+  helper_method :haversine_distance
 end
