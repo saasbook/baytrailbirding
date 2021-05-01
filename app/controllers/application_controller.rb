@@ -6,11 +6,12 @@ class ApplicationController < ActionController::Base
   def show
   	@locations_full = Location.all
   	# @distance = haversine_distance([120, 10],[120, 12], true)
-    sample_user_IP = '67.170.238.57'
-    user_IP = request.remote_ip 
+    user_IP = '67.170.238.57'
+    if IPAddress.valid? request.remote_ip
+      user_IP = request.remote_ip 
+    end
     results = Geocoder.search(user_IP)
-    @current_location = results.first.coordinates
-    
+    @current_location = results.first.coordinates    
   end
 
   def haversine_distance(geo_a, geo_b, miles=false)

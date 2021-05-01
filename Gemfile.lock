@@ -159,6 +159,7 @@ GEM
     hashdiff (1.0.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    ipaddress (0.8.3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     listen (3.5.1)
@@ -326,6 +327,7 @@ DEPENDENCIES
   faraday
   geocoder
   guard-rspec
+  ipaddress
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mimemagic (~> 0.3.10)
