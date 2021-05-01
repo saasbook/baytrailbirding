@@ -36,50 +36,17 @@ module EbirdHelper
     return bird_data
 
   end
+  
   #need to make new function to stub it dumb hate this
   def select_random_birds(birds, num_ret)
-
     birds.sample(num_ret)
-
   end
+
   #def addBirdDist(lat,lng,bird_data)
   #    bird_data.map {|x| haversine_distance_wrapper(x,3)}
   #    haversine_distance(lat,lng,bird_data)
-
-
   #end
 
-    ##
-  # Haversine Distance Calculation
-  #
-  # Accepts two coordinates in the form
-  # of a tuple. I.e.
-  #   geo_a  Array(Num, Num)
-  #   geo_b  Array(Num, Num)
-  #   miles  Boolean
-  #
-  # Returns the distance between these two
-  # points in either miles or kilometers
-  def haversine_distance(geo_a, geo_b, miles=false)
-    # Get latitude and longitude
-    lat1, lon1 = geo_a
-    lat2, lon2 = geo_b
-
-    # Calculate radial arcs for latitude and longitude
-    dLat = (lat2 - lat1) * Math::PI / 180
-    dLon = (lon2 - lon1) * Math::PI / 180
-
-
-    a = Math.sin(dLat / 2) *
-        Math.sin(dLat / 2) +
-        Math.cos(lat1 * Math::PI / 180) *
-        Math.cos(lat2 * Math::PI / 180) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2)
-
-     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-
-    d = 6371 * c * (miles ? 1 / 1.6 : 1)
-  end
 
 
   def getImageSrc(bird_data)
