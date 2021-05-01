@@ -47,8 +47,6 @@ module EbirdHelper
   #    haversine_distance(lat,lng,bird_data)
   #end
 
-
-
   def getImageSrc(bird_data)
     img_src = 'never set'
     begin

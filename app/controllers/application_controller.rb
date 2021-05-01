@@ -35,22 +35,5 @@ class ApplicationController < ActionController::Base
     d = 6371 * c * (miles ? 1 / 1.6 : 1)
   end
 
-
-  def getImageSrc(bird_data)
-    img_src = 'never set'
-    begin
-      img_src = getImageFromName(bird_data["comName"])
-    rescue NoMethodError => e1
-      puts e1
-      begin
-        img_src = getImageFromName(bird_data["sciName"])
-      rescue NoMethodError => e2
-        puts e2
-        img_src = nil
-      end
-    end
-    return img_src
-  end
-
   helper_method :haversine_distance
 end
