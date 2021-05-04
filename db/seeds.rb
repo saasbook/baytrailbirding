@@ -128,7 +128,7 @@ locations = Location.create([{name: "Heron's Head Park",
  							and geology adorning the hills are best enjoyed in early spring when the wildflowers are blooming.",
  							websiteURL: "https://www.ebparks.org/parks/coyote_hills/",
  							picURL: "https://kathrynwarmstrong.files.wordpress.com/2016/03/tom-turkey-at-coyote-hills-regional-park-2.jpg",
- 							latitude: "37.556110", longitude: "122.094092"},
+ 							latitude: "37.55680709085135", longitude: "-122.09410271751118"},
 
  							{name: "Hayward Regional Shoreline",
  							description: "The extensive network of trails around retired salt ponds at this park provides ample opportunity to explore the 
@@ -142,8 +142,164 @@ locations = Location.create([{name: "Heron's Head Park",
  							bay near Hayward.",
  							websiteURL: "https://www.ebparks.org/parks/hayward/",
  							picURL: "https://cdn-assets.alltrails.com/uploads/photo/image/24602749/large_26862332d3d851a36045d42271e50568.jpg",
- 							latitude: "37.649128", longitude: "-122.144570"}
- 						])
+ 							latitude: "37.649128", longitude: "-122.144570"}, 
+
+ 							{name: "Point Pinole Regional Shoreline",
+ 							description: "Point Pinole is an expansive peninsula protruding into San Pablo Bay.
+							 The peninsula is covered in a patchwork of eucalyptus forest and grassland. At the edge of the peninsula the grassland gently 
+							 slopes into the salt marshes forming a rare natural transition between these two habitats. The eucalyptus forest is inhabited by
+							 breeding Purple Finches and Bullock's Orioles in spring and summer, and many Yellow-rumped Warblers in the winter. 
+							 A nest box project at this park has greatly enhanced the grassland habitat for cavity nesters such as Western Bluebird, House Wren, and Tree Swallow. 
+							 In summer the swarms of Tree Swallows flying low over the grassland can be dizzying.",
+ 							short_desc: "Point Pinole is an expansive peninsula protruding into San Pablo Bay.",
+ 							websiteURL: "https://www.ebparks.org/parks/pt_pinole/",
+ 							picURL: "https://upload.wikimedia.org/wikipedia/commons/d/de/TamFromPinole.jpg",
+ 							latitude: "37.99223343", longitude: "-122.356032"}, 
+
+							{name: "John F. Kennedy Park",
+ 							description: "While some distance from the bay, this park maintains a connection via the Napa River which feeds into the bay’s extensive sloughs 
+							 and marshes further downstream. Much of the park is developed but along the western perimeter is a segment of the Bay Trail 
+							 following the Napa River for nearly two miles. The trail is at the same level of the river so waterfowl are easily viewed here 
+							 in fall and winter. An alameda of small oaks and cottonwoods line the trail and can have warblers and Oak Titmouses. 
+							 When the deciduous trees along this trail lose their foliage in winter, old bird nests may be revealed. Look for the hanging nest 
+							 of a Bushtit or the open stick nest of a Northern Mockingbird used in breeding seasons past. A duck 
+							 pond on the entrance road is worth checking for interesting waterfowl that sometimes drop in.",
+							 short_desc: "While some distance from the bay, this park maintains a connection via the Napa River which feeds into the bay’s extensive sloughs 
+							 and marshes further downstream.",
+ 							websiteURL: "https://www.cityofnapa.org/Facilities/Facility/Details/Kennedy-Park-28",
+ 							picURL: "https://assets.simpleviewinc.com/simpleview/image/upload/crm/napavalley/448_8915145d-5056-a36a-0852c8376146fe7f.jpg",
+ 							latitude: "38.2655389", longitude: "-122.2827163"},
+							
+							{name: "Shollenberger Park",
+ 							description: "Shollenberger Park is an example of how wetlands benefit both wildlife and the citizens that live nearby. The park is a complex series of sea-
+							 sonal wetlands that provide high quality habitat for wildlife while serving as flood protection to nearby neighborhoods. Willows and elderberries
+							 in the uplands of the park attract many birds throughout the year, and the mudflats in the wetlands are always busy with various waterbirds, especially in spring and fall
+							 when the lower water level is favorable to shorebirds. Look for Common Gallinules hugging the shoreline of the wetlands and an occasional Pacific Golden-Plover on the mudflat in fall.",
+							 short_desc: "Shollenberger Park is a complex series of sea-
+							 sonal wetlands that provide high quality habitat for wildlife while serving as flood protection to nearby neighborhoods. ",
+ 							websiteURL: "https://www.sonomacounty.com/outdoor-activities/shollenberger-park",
+ 							picURL: "https://www.sonomacounty.com/sites/default/files/styles/profile_photo_full/public/listing_images/profile/1779/shollenberger-120_90275453-5056-a36a-077580718e3fd23e.jpg?itok=ExInqnOp",
+ 							latitude: "38.226216328", longitude: "-122.5986369"},
+
+							{name: "Las Gallinas Sanitary District Wildlife Area",
+							description:"Next to a waste water treatment plant, this site has a rich
+							diversity of ducks, herons and egrets, shorebirds, swallows, and
+							other wetland denizens. A
+							levee trail leading from the
+							parking area circles around
+							several large ponds. The
+							first pond along the trail is
+							maintained as a wetland
+							and has bulrushes, willows,
+							and other vegetation busy
+							with nesting Marsh Wrens
+							and Common Yellowthroats. The many species at this pond now
+							include Least Bittern, a recent addition to the breeding avifauna in this area. Listen for their understated coo-coo-coo call
+							emanating from the wetland vegetation during the summer. The
+							ponds further from the parking area are kept mostly denuded but
+							they are still productive for waterfowl; look for Common Merganser and Common Goldeneye on these ponds. Tree and Cliff
+							Swallows can be especially abundant at the ponds and surrounding open space in spring and summer. Directions: when ap-
+							proaching the entrance to John McInnis Park in San Rafael, cross
+							the railroad tracks and turn left before the entrance, continuing
+							on Smith Ranch Road to its end at the Las Gallinas Wildlife Area
+							parking lot.",
+							short_desc:"Las Gallinas Sanitary District Wildlife Area has a rich
+							diversity of ducks, herons and egrets, shorebirds, swallows, and
+							other wetland denizens.",
+						 	websiteURL:"http://www.lgvsd.org/community-programs/public-access/wildlife-info/",
+							picURL:"https://lh3.googleusercontent.com/proxy/iCKU4t3dfIXU777UbKg_gEsEJliwQRa8g8_DlYNE9ksjzNln5LEOYOkOFvoa1u8lVIcMbdV0roET75rXrMq-z7s28HA95dNqpkFhom9DCx7UjwgUAiU",
+							latitude:"38.02554219468899",
+						 	longitude: "-122.5189191315",
+							},
+
+							{name: "China Camp State Park",
+							description:"China Camp State Park is a convenient, scenic getaway from the
+							Bay Area metropolis. Salt marsh abuts hills covered in oak wood-
+							land creating an interesting juxtaposition of habitats
+							found nowhere else in the
+							bay. North San Pedro Road
+							winds along the perimeter of
+							the salt marsh and is suitable
+							for leisurely birding. From
+							this road, White-tailed Kites
+							and Northern Harriers can be
+							seen hunting for prey hiding
+							in the marsh. The many trails
+							leading into the hills above the marsh provide opportunities to
+							see various landbirds such as Spotted Towhees and Wrentits.
+							Directions: park at China Camp Village or other locations along
+							North San Pedro Road in San Rafael.",
+							short_desc:"China Camp State Park is a convenient, scenic getaway from the
+							Bay Area metropolis.",
+						 	websiteURL:"http://www.parks.ca.gov/?page_id=466",
+							picURL:"http://www.parks.ca.gov/pages/466/images/img_9031lowres.jpg",
+							latitude:"38.00135443117158",
+						 	longitude: "-122.491010329139",
+							},
+							{name: "Corte Madera Marsh Ecological Reserve",
+							description:"As with many places in bay, there is an abrupt transition from the
+							urban sprawl to the marshes of Corte Madera Marsh Ecological
+							Reserve. Once inside the park it is a
+							peaceful place where the sound of
+							clamoring Ridgway’s Rails and buzzing
+							Song Sparrows are principals of the
+							soundscape. There is a bicycle path
+							around the uplands and single-track
+							trails further to the north and south
+							that are worth exploring. Some of the
+							trails are small rises above the marsh
+							allowing a unique, close-up view
+							of this habitat. Directions: take the
+							Industrial Avenue exit off Highway 101 and continue one block to
+							the parking area at the end.",
+							short_desc:"As with many places in bay, there is an abrupt transition from the
+							urban sprawl to the marshes of Corte Madera Marsh Ecological
+							Reserve.",
+						 	websiteURL:"https://wildlife.ca.gov/Lands/Places-to-Visit/Corte-Madera-Marsh-ER",
+							picURL:"https://www.marinij.com/wp-content/uploads/2021/01/MIJ-L-CMADMARSH-0130-08.jpg?w=1024&h=768",
+							latitude:"37.93605276770284",
+						 	longitude: "-122.51407611328601",
+							},
+							{name: "Benicia State Recreation Area",
+							description:"Tucked into a small bay on the Carquinez Strait, this park has
+							impressive views of the strait and the grassy foothills rising
+							above it. The salt marsh here
+							is untouched and is home to
+							most of the marsh birds found
+							elsewhere in the bay. The fruiting
+							trees in the small native botanic
+							garden attract many birds during
+							migration and winter. The hillside
+							above the garden is part of Dillon
+							Point, which is a nice place
+							to spend an afternoon watching for raptors catching thermals
+							overhead. The klaxon alarm of a Ring-necked Pheasant may be
+							heard from the patches of sedges nearby. Directions: the park is
+							located at 1 State Park Road in Benicia.",
+							short_desc:"Tucked into a small bay on the Carquinez Strait, this park has
+							impressive views of the strait and the grassy foothills rising
+							above it.",
+						 	websiteURL:"https://www.parks.ca.gov/?page_id=476",
+							picURL:"https://www.parks.ca.gov/pages/476/images/BeniciaSRA-Palmer_P059932.jpg",
+							latitude:"38.073499265327285",
+						 	longitude: "-122.19262354236336",
+							},
+							{name: "Hudeman Slough",
+							description:"Hudeman Slough is one of many waterways through the expansive landscape of grain fields, vineyards, and wetlands in
+							this area. The quiet levee trails at this park have panoramic
+							views that include Mount Diablo, Mount Tamalpais, and the
+							Napa-Sonoma wine country. Waterfowl and shorebirds are
+							attracted to the area in great diversity, especially in spring and
+							fall when birding is best. Cinnamon Teal breed in the marsh and
+							an occasional Swainson’s Hawk may be seen soaring overhead.",
+							short_desc:"Hudeman Slough is one of many waterways through the expansive landscape of grain fields, vineyards, and wetlands in
+							this area.",
+						 	websiteURL:"https://www.sonomahikingtrails.com/parks/hudeman-slough-wetlands/",
+							picURL:"https://parks.sonomacounty.ca.gov/uploadedImages/Parks/-_Content_New/_Uploaded_Images/_Carousel/_Parks/_Hudeman_Slough_Boat_Launch/hudeman-slough-750.JPG?n=8471",
+							latitude:"38.20574612502795",
+						 	longitude: "-122.37440231578378",
+							}
+ 						]);
 
 
 
