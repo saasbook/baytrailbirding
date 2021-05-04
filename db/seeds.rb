@@ -174,8 +174,7 @@ locations = Location.create([{name: "Heron's Head Park",
 							 sonal wetlands that provide high quality habitat for wildlife while serving as flood protection to nearby neighborhoods. Willows and elderberries
 							 in the uplands of the park attract many birds throughout the year, and the mudflats in the wetlands are always busy with various waterbirds, especially in spring and fall
 							 when the lower water level is favorable to shorebirds. Look for Common Gallinules hugging the shoreline of the wetlands and an occasional Pacific Golden-Plover on the mudflat in fall.",
-							 short_desc: "Shollenberger Park is a complex series of sea-
-							 sonal wetlands that provide high quality habitat for wildlife while serving as flood protection to nearby neighborhoods. ",
+							 short_desc: "Shollenberger Park is a complex series of seasonal wetlands that provide high quality habitat for wildlife while serving as flood protection to nearby neighborhoods. ",
  							websiteURL: "https://www.sonomacounty.com/outdoor-activities/shollenberger-park",
  							picURL: "https://www.sonomacounty.com/sites/default/files/styles/profile_photo_full/public/listing_images/profile/1779/shollenberger-120_90275453-5056-a36a-077580718e3fd23e.jpg?itok=ExInqnOp",
  							latitude: "38.226216328", longitude: "-122.5986369"},
@@ -206,7 +205,7 @@ locations = Location.create([{name: "Heron's Head Park",
 							diversity of ducks, herons and egrets, shorebirds, swallows, and
 							other wetland denizens.",
 						 	websiteURL:"http://www.lgvsd.org/community-programs/public-access/wildlife-info/",
-							picURL:"https://lh3.googleusercontent.com/proxy/iCKU4t3dfIXU777UbKg_gEsEJliwQRa8g8_DlYNE9ksjzNln5LEOYOkOFvoa1u8lVIcMbdV0roET75rXrMq-z7s28HA95dNqpkFhom9DCx7UjwgUAiU",
+							picURL:"https://www.marinmommies.com/sites/default/files/stories/lasgallinas3_0.jpg",
 							latitude:"38.02554219468899",
 						 	longitude: "-122.5189191315",
 							},
