@@ -8,3 +8,8 @@ Feature: Homepage Layout
     Then I should see the organization name
     Then I should see the side navigation bar
     Then I should see the map placeholder
+  
+  Scenario: User sees all show all pages. 
+    When I go to the homepage
+    When I go to the locations page
+    Then I should see location cards
