@@ -68,13 +68,10 @@
            <div id="mapid" style="height:500px"></div>
 	    	</div>
 
-	        <div class="col-md-2">
-
-                   <div id="js-com_bird_info" class="card">
-                  </div>
-
-
-	    	</div>
+        <div class="col-md-2">
+          <div id="js-com_bird_info" class="card">
+          </div>
+        </div>
     	</div>
 
       <div class="row">
@@ -88,22 +85,21 @@
               <div id="header"> 
                 <center>Click on a location pin to see recent bird sightings there in the past 30 days.</center>
               </div>
-              <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>  
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>  
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>  
+              <div class="scrolling-wrapper">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
 
 
@@ -173,18 +169,14 @@
       function setContentLoc(i, birddata,imgsrc,elem){
         $(elem)[i].innerHTML += 
           `
-          <div class="col-2-md">
-            <div class="card">
-              <center>
-              <img class="card-img-top" src="${imgsrc}" style="width: 10rem; height: 10rem;">
-              </center>
-              <div class="card-body" style="padding: 0">
-                <a href="https://ebird.org/species/${birddata.speciesCode}"> <h5 class="card-title">${birddata.comName}</h5> </a>
-                <h6 class="card-subtitle mb-2 text-muted">${birddata.sciName}</h6>
-                <h6> <p>Last Seen: ${ moment(birddata.obsDt).fromNow()  }</p></h6>
-              </div>
+            <center>
+            <img class="card-img-top" src="${imgsrc}" style="width: 10rem; height: 10rem;">
+            </center>
+            <div class="card-body" style="padding: 0">
+              <a href="https://ebird.org/species/${birddata.speciesCode}"> <h5 class="card-title">${birddata.comName}</h5> </a>
+              <h6 class="card-subtitle mb-2 text-muted">${birddata.sciName}</h6>
+              <h6> <p>Last Seen: ${ moment(birddata.obsDt).fromNow()  }</p></h6>
             </div>
-          </div>
           `;
       }
 
@@ -202,10 +194,15 @@
       function setLoc(loc_data){
         marker = new L.Marker(
           L.latLng(loc_data.latitude, loc_data.longitude),
-          {icon: yellowIcon}
+          {name: loc_data.name, icon: yellowIcon}
         );
         mymap.addLayer(marker);
-        marker.bindPopup(`<b>${loc_data.name}</b><br/>${loc_data.short_desc}<br/><a href="${loc_data.websiteURL}">Website</a>`).openPopup();
+        URL_loc = loc_data.name.replace(/ /g, "+");
+        marker.bindPopup(`<center><b>${loc_data.name}</b></center> 
+                          <br/><img src="${loc_data.picURL}" width=300 height=200>
+                          <br/> ${loc_data.short_desc}
+                          <br/><a href="${loc_data.websiteURL}">Website</a>
+                          <br/> <a href="https://www.google.com/maps/dir/?api=1&destination=${URL_loc}">Get Directions</a>`).openPopup();
         marker.on('click', locMarkerOnClick);
         return marker
       }
@@ -221,12 +218,11 @@
       function markerOnClick(e){
         i = this.options.name.slice(-1);
         setContent(bird_data[i],bird_images[i],$("#js-com_bird_info"));
-        console.log("CLICKED.");
       }
 
       function locMarkerOnClick(e){
-        console.log(e);
         console.log("LOC MARKER CLICKED.");
+        loc_name = e["sourceTarget"]["options"]["name"];
         lat = e.latlng["lat"];
         lng = e.latlng["lng"];
         var settings = {"url": "/ebird",
@@ -246,19 +242,18 @@
           bird_data = response.birddata;
           bird_images = response.imgsrc;
           var arrayLength = bird_data.length;
-          $("#RecentBirdList #header").html(`<center>Birds Seen At this Location:</center>`);
-          $("#RecentBirdList .grid-container").html(`<div class="grid-item"></div>
-                                                     <div class="grid-item"></div>
-                                                     <div class="grid-item"></div>  
-                                                     <div class="grid-item"></div>
-                                                     <div class="grid-item"></div>
-                                                     <div class="grid-item"></div>  
-                                                     <div class="grid-item"></div>
-                                                     <div class="grid-item"></div>
-                                                     <div class="grid-item"></div>`);
+          $("#RecentBirdList #header").html(`<center>Birds To Look Out For At ${loc_name}:</center>`);
+          $("#RecentBirdList .scrolling-wrapper").html(`<div class="card"></div>
+                                                        <div class="card"></div>
+                                                        <div class="card"></div>
+                                                        <div class="card"></div>
+                                                        <div class="card"></div>
+                                                        <div class="card"></div>
+                                                        <div class="card"></div>
+                                                        <div class="card"></div>
+                                                        <div class="card"></div>`);
           for (var i = 0; i < arrayLength; i++) {
-            setContentLoc(i, bird_data[i],bird_images[i],$("#RecentBirdList .grid-container .grid-item"));
-            console.log("Printed a bird.");
+            setContentLoc(i, bird_data[i],bird_images[i],$("#RecentBirdList .scrolling-wrapper .card"));
           }
         });              
       }
@@ -308,7 +303,6 @@
             var group = new L.featureGroup(markers);
             mymap.fitBounds(group.getBounds().pad(0.2));
           }
-
         });
       }
 

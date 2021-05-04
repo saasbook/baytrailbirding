@@ -19,8 +19,7 @@ locations = Location.create([{name: "Heron's Head Park",
 							Francisco’s natural gems thanks to a wetland restoration project in the 1990s.",
 							picURL: "https://sfport.com/sites/default/files/Planning/Images/Aerial%20Courtesey%20Bionic%20Landscape%20Architects-logo_0.png",
 							websiteURL: "https://sfport.com/herons-head-park",
-							longitude: "-122.373510", latitude: "37.738327"},
-
+							longitude: "-122.37305445812652", latitude: "37.738335932140785"},
 							{name: "Coyote Point Recreation Area",
 							description: "This former site of an Ohlone fishing village now has a marina, a museum, and a eucalyptus forest. A
 							variety of sea ducks can be seen around Coyote Point, some of which are harder to find elsewhere in the

@@ -29,9 +29,17 @@
     grid-template-columns: auto auto auto;
     padding: 10px;
   }
-  .grid-item {
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
-  
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-wrapper .card{
+  display: inline-block;
+}
