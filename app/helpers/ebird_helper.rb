@@ -66,13 +66,15 @@ module EbirdHelper
   end
 
   def getImageSrc(bird_data)
-    img_src = nil
+    img_src = 'never set'
     begin
-      if bird_data
-        img_src = getImageFromName(bird_data["comName"] || bird_data["sciName"])
+      img_src = getImageFromName(bird_data["comName"])
+    rescue NoMethodError => e1
+      begin
+        img_src = getImageFromName(bird_data["sciName"])
+      rescue NoMethodError => e2
+        img_src = nil
       end
-    rescue => e
-      puts e
     end
     return img_src
   end

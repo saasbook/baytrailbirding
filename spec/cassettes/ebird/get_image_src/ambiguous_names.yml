@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Herring+Gull
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Common+x+Barrow%27s+Goldeneye+%28hybrid%29
     body:
       encoding: US-ASCII
       string: ''
@@ -15,9 +15,9 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 05 May 2021 03:13:17 GMT
+      - Wed, 05 May 2021 04:45:23 GMT
       server:
-      - mw1287.eqiad.wmnet
+      - mw1361.eqiad.wmnet
       x-content-type-options:
       - nosniff
       p3p:
@@ -32,13 +32,13 @@ http_interactions:
       cache-control:
       - private, must-revalidate, max-age=0
       x-request-id:
-      - b76d3d64-6bd9-4915-b9e3-36e1696bf044
+      - 0b887467-b2b6-4cb5-bb98-c97d001c5dcf
       content-type:
       - application/json; charset=utf-8
       age:
       - '0'
       x-cache:
-      - cp4029 miss, cp4028 pass
+      - cp4031 miss, cp4028 pass
       x-cache-status:
       - pass
       server-timing:
@@ -63,17 +63,17 @@ http_interactions:
       accept-ranges:
       - bytes
       content-length:
-      - '134'
+      - '118'
       connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"batchcomplete":"","query":{"redirects":[{"from":"Herring Gull","to":"Herring
-        gull"}],"pages":{"27565629":{"pageid":27565629,"ns":0,"title":"Herring gull"}}}}'
-  recorded_at: Wed, 05 May 2021 03:13:17 GMT
+      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"Common
+        x Barrow''s Goldeneye (hybrid)","missing":""}}}}'
+  recorded_at: Wed, 05 May 2021 04:45:23 GMT
 - request:
     method: get
-    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Bucephala+clangula+x+islandica
     body:
       encoding: US-ASCII
       string: ''
@@ -86,9 +86,9 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 05 May 2021 03:13:17 GMT
+      - Wed, 05 May 2021 04:45:23 GMT
       server:
-      - mw1356.eqiad.wmnet
+      - mw1377.eqiad.wmnet
       x-content-type-options:
       - nosniff
       p3p:
@@ -103,13 +103,13 @@ http_interactions:
       cache-control:
       - private, must-revalidate, max-age=0
       x-request-id:
-      - 95df36a0-1ddd-4cb7-8a32-9a7e5790a5bb
+      - 7a42ef5e-7d81-4489-8f8b-9f3076abf059
       content-type:
       - application/json; charset=utf-8
       age:
-      - '2'
+      - '0'
       x-cache:
-      - cp4030 miss, cp4028 pass
+      - cp4027 miss, cp4028 pass
       x-cache-status:
       - pass
       server-timing:
@@ -134,11 +134,12 @@ http_interactions:
       accept-ranges:
       - bytes
       content-length:
-      - '40'
+      - '109'
       connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"batchcomplete":""}'
-  recorded_at: Wed, 05 May 2021 03:13:18 GMT
+      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"Bucephala
+        clangula x islandica","missing":""}}}}'
+  recorded_at: Wed, 05 May 2021 04:45:23 GMT
 recorded_with: VCR 6.0.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=American+x+Black+Oystercatcher+%28hybrid%29
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Sora
     body:
       encoding: US-ASCII
       string: ''
@@ -15,9 +15,9 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 05 May 2021 03:13:18 GMT
+      - Wed, 05 May 2021 04:45:23 GMT
       server:
-      - mw1283.eqiad.wmnet
+      - mw1404.eqiad.wmnet
       x-content-type-options:
       - nosniff
       p3p:
@@ -32,13 +32,13 @@ http_interactions:
       cache-control:
       - private, must-revalidate, max-age=0
       x-request-id:
-      - d6d7eb8a-69fa-4f37-bcb5-d333b160157f
+      - a1aba209-9056-4a56-b249-06ae8e075ebf
       content-type:
       - application/json; charset=utf-8
       age:
       - '0'
       x-cache:
-      - cp4028 miss, cp4028 pass
+      - cp4030 miss, cp4028 pass
       x-cache-status:
       - pass
       server-timing:
@@ -63,17 +63,16 @@ http_interactions:
       accept-ranges:
       - bytes
       content-length:
-      - '121'
+      - '92'
       connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"American
-        x Black Oystercatcher (hybrid)","missing":""}}}}'
-  recorded_at: Wed, 05 May 2021 03:13:18 GMT
+      string: '{"batchcomplete":"","query":{"pages":{"309219":{"pageid":309219,"ns":0,"title":"Sora"}}}}'
+  recorded_at: Wed, 05 May 2021 04:45:23 GMT
 - request:
     method: get
-    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=porzana+carolina
     body:
       encoding: US-ASCII
       string: ''
@@ -86,9 +85,9 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 05 May 2021 03:13:18 GMT
+      - Wed, 05 May 2021 04:45:23 GMT
       server:
-      - mw1288.eqiad.wmnet
+      - mw1379.eqiad.wmnet
       x-content-type-options:
       - nosniff
       p3p:
@@ -103,13 +102,13 @@ http_interactions:
       cache-control:
       - private, must-revalidate, max-age=0
       x-request-id:
-      - 4e8d917f-f9a8-44e2-8310-429f1cab2b44
+      - 2e0cb257-6765-4812-b9bf-a8ab9b0c7f1a
       content-type:
       - application/json; charset=utf-8
       age:
       - '0'
       x-cache:
-      - cp4031 miss, cp4028 pass
+      - cp4027 miss, cp4028 pass
       x-cache-status:
       - pass
       server-timing:
@@ -134,11 +133,13 @@ http_interactions:
       accept-ranges:
       - bytes
       content-length:
-      - '40'
+      - '244'
       connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"batchcomplete":""}'
-  recorded_at: Wed, 05 May 2021 03:13:18 GMT
+      string: '{"batchcomplete":"","query":{"normalized":[{"from":"porzana carolina","to":"Porzana
+        carolina"}],"redirects":[{"from":"Porzana carolina","to":"Sora (bird)"}],"pages":{"308742":{"pageid":308742,"ns":0,"title":"Sora
+        (bird)","original":{"source":"https://upload.wikimedia.org/wikipedia/commons/2/2d/Sora_%28Porzana_carolina%29.jpg","width":900,"height":600}}}}}'
+  recorded_at: Wed, 05 May 2021 04:45:23 GMT
 recorded_with: VCR 6.0.0

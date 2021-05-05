@@ -24,7 +24,7 @@ RSpec.describe EbirdHelper, type: :helper do
   end
   describe "getImageSrc" do
     it "given data with a common name, returns an image" do
-      VCR.use_cassette('ebird/get_image_src/com_name') do
+      VCR.use_cassette('ebird/get_image_src/common_name') do
         data = {
           "comName" => "Canada Goose",
           "sciName" => "Branta canadensis"
@@ -34,17 +34,21 @@ RSpec.describe EbirdHelper, type: :helper do
       end
     end
     it "given data with a scientific name, returns an image" do
-      VCR.use_cassette('ebird/get_image_src/sci_name') do
+      VCR.use_cassette('ebird/get_image_src/scientific_name') do
         data = {
-          "sciName" => "Branta canadensis"
+          "comName" => "Sora",
+          "sciName" => "porzana carolina"
         }
         image = getImageSrc(data);
-        expect(image).to eq "https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg"
+        expect(image).to eq "https://upload.wikimedia.org/wikipedia/commons/2/2d/Sora_%28Porzana_carolina%29.jpg"
       end
     end
-    it "given data with no name, returns no image" do
-      VCR.use_cassette('ebird/get_image_src') do
-        data = nil
+    it "given data with ambiguous names, returns no image" do
+      VCR.use_cassette('ebird/get_image_src/ambiguous_names') do
+        data = {
+          "comName" => "Common x Barrow's Goldeneye (hybrid)",
+          "sciName" => "Bucephala clangula x islandica"
+        }
         image = getImageSrc(data);
         expect(image).to eq nil
       end

@@ -15,9 +15,9 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 05 May 2021 03:19:15 GMT
+      - Wed, 05 May 2021 04:45:22 GMT
       server:
-      - mw1378.eqiad.wmnet
+      - mw1390.eqiad.wmnet
       x-content-type-options:
       - nosniff
       p3p:
@@ -32,13 +32,13 @@ http_interactions:
       cache-control:
       - private, must-revalidate, max-age=0
       x-request-id:
-      - 1c84f36b-6c1b-4fc4-a51c-62dca891b557
+      - 4923acea-678a-4a50-8768-2652421940f8
       content-type:
       - application/json; charset=utf-8
       age:
       - '0'
       x-cache:
-      - cp4027 miss, cp4028 pass
+      - cp4030 miss, cp4028 pass
       x-cache-status:
       - pass
       server-timing:
@@ -70,5 +70,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"batchcomplete":"","query":{"redirects":[{"from":"Canada Goose","to":"Canada
         goose"}],"pages":{"218972":{"pageid":218972,"ns":0,"title":"Canada goose","original":{"source":"https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg","width":4281,"height":3256}}}}}'
-  recorded_at: Wed, 05 May 2021 03:19:15 GMT
+  recorded_at: Wed, 05 May 2021 04:45:22 GMT
 recorded_with: VCR 6.0.0
