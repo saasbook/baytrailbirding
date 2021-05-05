@@ -44,3 +44,10 @@
 .scrolling-wrapper .card{
   display: inline-block;
 }
+
+@media(max-width:768px) {
+  #logo img {
+      width: 0px;
+      height: 0px
+  }
+}
