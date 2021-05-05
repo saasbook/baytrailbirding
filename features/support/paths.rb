@@ -14,6 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
+      WebMock.allow_net_connect!
       '/'
        
     when /^the locations page$/
