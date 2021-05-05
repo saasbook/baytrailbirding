@@ -67,8 +67,12 @@ module EbirdHelper
 
   def getImageSrc(bird_data)
     img_src = nil
-    if bird_data
-      img_src = getImageFromName(bird_data["comName"] || bird_data["sciName"])
+    begin
+      if bird_data
+        img_src = getImageFromName(bird_data["comName"] || bird_data["sciName"])
+      end
+    rescue => e
+      puts e
     end
     return img_src
   end
