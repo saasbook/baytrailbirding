@@ -150,6 +150,17 @@
           maxZoom: 22
        }).addTo(mymap);
 
+      var legend = L.control({position: 'topright'});
+      legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'legend');
+        div.innerHTML +=  '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" height=41 width=25>'  + 'Your Location' + '<br>'
+        div.innerHTML +=  '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png" height=41 width=25>' + 'Bird-Watching Park' + '<br>'
+        div.innerHTML +=  '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" height=41 width=25>'   +  'Recent Bird Sighting'
+        div.style.background = "silver"
+        return div;
+      };
+      legend.addTo(mymap);
+
       function setContent(birddata,imgsrc,elem){
         $(elem).empty();
         $(elem).append(
@@ -165,6 +176,8 @@
           `
         );
       }
+
+      
 
       function setContentLoc(i, birddata,imgsrc,elem){
         $(elem)[i].innerHTML += 
@@ -239,9 +252,9 @@
                         };
         $.ajax(settings).done(function (response) {
           console.log(response);
-          bird_data = response.birddata;
-          bird_images = response.imgsrc;
-          var arrayLength = bird_data.length;
+          bird_data_loc= response.birddata;
+          bird_images_loc = response.imgsrc;
+          var arrayLength = bird_data_loc.length;
           $("#RecentBirdList #header").html(`<center>Birds To Look Out For At ${loc_name}:</center>`);
           $("#RecentBirdList .scrolling-wrapper").html(`<div class="card"></div>
                                                         <div class="card"></div>
@@ -253,7 +266,7 @@
                                                         <div class="card"></div>
                                                         <div class="card"></div>`);
           for (var i = 0; i < arrayLength; i++) {
-            setContentLoc(i, bird_data[i],bird_images[i],$("#RecentBirdList .scrolling-wrapper .card"));
+            setContentLoc(i, bird_data_loc[i],bird_images_loc[i],$("#RecentBirdList .scrolling-wrapper .card"));
           }
         });              
       }
