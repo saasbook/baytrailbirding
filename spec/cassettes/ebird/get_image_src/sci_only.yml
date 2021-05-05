@@ -1,0 +1,144 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Herring+Gull
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 May 2021 03:13:17 GMT
+      server:
+      - mw1287.eqiad.wmnet
+      x-content-type-options:
+      - nosniff
+      p3p:
+      - CP="See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P for more
+        info."
+      x-frame-options:
+      - SAMEORIGIN
+      content-disposition:
+      - inline; filename=api-result.json
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      cache-control:
+      - private, must-revalidate, max-age=0
+      x-request-id:
+      - b76d3d64-6bd9-4915-b9e3-36e1696bf044
+      content-type:
+      - application/json; charset=utf-8
+      age:
+      - '0'
+      x-cache:
+      - cp4029 miss, cp4028 pass
+      x-cache-status:
+      - pass
+      server-timing:
+      - cache;desc="pass", host;desc="cp4028"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      permissions-policy:
+      - interest-cohort=()
+      set-cookie:
+      - WMF-Last-Access=05-May-2021;Path=/;HttpOnly;secure;Expires=Sun, 06 Jun 2021
+        00:00:00 GMT, WMF-Last-Access-Global=05-May-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sun,
+        06 Jun 2021 00:00:00 GMT, GeoIP=US:CA:Albany:37.89:-122.29:v4; Path=/; secure;
+        Domain=.wikipedia.org
+      x-client-ip:
+      - 135.180.0.237
+      accept-ranges:
+      - bytes
+      content-length:
+      - '134'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"redirects":[{"from":"Herring Gull","to":"Herring
+        gull"}],"pages":{"27565629":{"pageid":27565629,"ns":0,"title":"Herring gull"}}}}'
+  recorded_at: Wed, 05 May 2021 03:13:17 GMT
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 May 2021 03:13:17 GMT
+      server:
+      - mw1356.eqiad.wmnet
+      x-content-type-options:
+      - nosniff
+      p3p:
+      - CP="See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P for more
+        info."
+      x-frame-options:
+      - SAMEORIGIN
+      content-disposition:
+      - inline; filename=api-result.json
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      cache-control:
+      - private, must-revalidate, max-age=0
+      x-request-id:
+      - 95df36a0-1ddd-4cb7-8a32-9a7e5790a5bb
+      content-type:
+      - application/json; charset=utf-8
+      age:
+      - '2'
+      x-cache:
+      - cp4030 miss, cp4028 pass
+      x-cache-status:
+      - pass
+      server-timing:
+      - cache;desc="pass", host;desc="cp4028"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      permissions-policy:
+      - interest-cohort=()
+      set-cookie:
+      - WMF-Last-Access=05-May-2021;Path=/;HttpOnly;secure;Expires=Sun, 06 Jun 2021
+        00:00:00 GMT, WMF-Last-Access-Global=05-May-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sun,
+        06 Jun 2021 00:00:00 GMT, GeoIP=US:CA:Albany:37.89:-122.29:v4; Path=/; secure;
+        Domain=.wikipedia.org
+      x-client-ip:
+      - 135.180.0.237
+      accept-ranges:
+      - bytes
+      content-length:
+      - '40'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":""}'
+  recorded_at: Wed, 05 May 2021 03:13:18 GMT
+recorded_with: VCR 6.0.0

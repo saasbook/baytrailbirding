@@ -1,70 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,900;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-  <script
-    src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin="">
-  </script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="stylesheets/css" href="show.css">
-  </head>
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 navigation" style="padding: 0 !important;">
-					
-					<div id="logo">
-						<center>
-							<h2 style="margin-bottom: 0;"><%= link_to 'BIRDING THE BAY TRAIL', root_path, {:style=>'color:#000000; text-decoration:none;', } %>
-							</h2>
-							ALL LOCATIONS
-						</center>
-						<hr>
-						
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="card-columns">
-					<% @locations_full.each do |location| %>
-			        	<div class="card">
-			        		<img class="card-img-top" src="<%= location.picURL %>" />
-			        		<div class="card-body">
-				        		<h5 id="location-name"><%= location.name %></h5>
-				        		<h5><%= number_with_precision(hav_distance([location.latitude.to_f, location.longitude.to_f], @current_location), precision: 2) %> mi</h5>
-				        		<p class="card-text" style="font-size: 14px;"><%= location.description %></p>
-				        	</div>
-				        	<div class="card-footer">
-				        		<a href="<%= location.websiteURL %>" class="card-link" target="_blank">Website</a>
-				        	</div>
-			        	</div>
-			        	<br>
-			        <% end %>
-		    	</div>
-		    </div>
-		    <div class="row">
-    		<div class="col-md-12 navigation" style="padding: 0 !important;">
-    			<div id="logo">
-    				FOOTER AND CONTACT LINKS GO HERE
-    			</div>
-    		</div>
-    		</div>
-		</div>
-	</body>
-</html>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 navigation" style="padding: 0 !important;">
+      <div id="logo">
+        <center>
+          <h2 style="margin-bottom: 0;"><%= link_to 'BIRDING THE BAY TRAIL', root_path, {:style=>'color:#000000; text-decoration:none;', } %>
+          </h2>
+          ALL LOCATIONS
+        </center>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-columns">
+      <% @locations_full.each do |location| %>
+        <div class="card">
+          <img class="card-img-top" src="<%= location.picURL %>" />
+          <div class="card-body">
+            <h5 id="location-name"><%= location.name %></h5>
+            <h5><%= number_with_precision(hav_distance([location.latitude.to_f, location.longitude.to_f], @current_location), precision: 2) %> mi</h5>
+            <p class="card-text" style="font-size: 14px;"><%= location.description %></p>
+          </div>
+          <div class="card-footer">
+            <a href="<%= location.websiteURL %>" class="card-link" target="_blank">Website</a>
+          </div>
+        </div>
+        <br>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 navigation" style="padding: 0 !important;">
+      <div id="logo">
+        FOOTER AND CONTACT LINKS GO HERE
+      </div>
+    </div>
+  </div>
+</div>
