@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ebird.org/v2/data/obs/geo/recent/notable?back=10&dist=25&lat=37.42&lng=-121.91&maxResults=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-eBirdApiToken:
+      - a9qvaguuedjc
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Wed, 05 May 2021 03:00:39 GMT
+      expires:
+      - '0'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '307'
+    body:
+      encoding: UTF-8
+      string: '[{"speciesCode":"comgol","comName":"Common Goldeneye","sciName":"Bucephala
+        clangula","locId":"L594012","locName":"Shoreline Park--Shoreline Lake area","obsDt":"2021-05-04
+        17:45","howMany":1,"lat":37.432341,"lng":-122.0918369,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S87140028"}]'
+  recorded_at: Wed, 05 May 2021 03:00:40 GMT
+recorded_with: VCR 6.0.0

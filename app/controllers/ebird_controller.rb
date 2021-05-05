@@ -7,10 +7,9 @@ class EbirdController < ApplicationController
   def data
       lat = params[:lat]
       lng = params[:lng]
-      rare = params[:rare] || false
       num_req = params[:num_req].to_i || 100
       num_ret = params[:num_ret].to_i || 1
-      selected_birds = getBirdData(lat, lng, num_req, num_ret, rare)
+      selected_birds = getBirdData(lat, lng, num_req, num_ret)
       img_src = []
       selected_birds.each { |bird_data|
           img_src.append(getImageSrc(bird_data))

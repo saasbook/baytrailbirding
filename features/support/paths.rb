@@ -16,11 +16,11 @@ module NavigationHelpers
     when /^the home\s?page$/
       WebMock.allow_net_connect!
       '/'
-       
+
     when /^the locations page$/
       WebMock.allow_net_connect!
       locations_path
-      
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

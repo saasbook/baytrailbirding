@@ -9,12 +9,12 @@
 #Location Seed Data
 
 #facilities = Facility.create([{name: "Bathroom", icon: "https://cdn1.iconfinder.com/data/icons/construction-2-13/48/87-512.png"}])
-locations = Location.create([{name: "Heron's Head Park", 
+locations = Location.create([{name: "Heron's Head Park",
 							description: "Once slated to be a new shipping terminal in the 1970s, this slice of land ultimately became one of San
 							Francisco’s natural gems thanks to a wetland restoration project in the 1990s. Heron’s Head Park is
 							representative of what much of the San Francisco coastline once was: grassland uplands gently sloping
 							into the pickleweed marsh bordering the bay. The pleasantly musical song of the many White-crowned
-							Sparrows carries over the uplands, which are dotted with orange poppies in spring.", 
+							Sparrows carries over the uplands, which are dotted with orange poppies in spring.",
 							short_desc: "Once slated to be a new shipping terminal in the 1970s, this slice of land ultimately became one of San
 							Francisco’s natural gems thanks to a wetland restoration project in the 1990s.",
 							picURL: "https://sfport.com/sites/default/files/Planning/Images/Aerial%20Courtesey%20Bionic%20Landscape%20Architects-logo_0.png",
@@ -70,105 +70,105 @@ locations = Location.create([{name: "Heron's Head Park",
  							latitude:"37.803523", longitude:"-122.257413"},
 
  							{name: "Palo Alto Baylands",
- 							description: "The Palo Alto Baylands and vicinity form an extensive complex of wetlands and uplands that has 
- 							excellent birding opportunities throughout the year. Sora and Virginia’s Rails can be heard calling from the fresh and 
- 							brackish marshes, while Ridgway’s Rails clamor in the salt marshes along the bay edge. The boardwalk around the Lucy 
- 							Evans Nature Center is one of the best places to see the latter species as they strut through the exposed marsh 
- 							channels. Black Rails are also occasionally seen here during king tides in winter. Northern Harriers patrol the 
- 							marshes and uplands at Bixby Park during the day, and sometimes Short-eared Owls emerge at dusk from the adjacent 
- 							Palo Alto Flood Control Basin in winter. A great diversity and abundance of waterbirds can be seen on the salt ponds 
- 							at all times of the year. The baylands are home to a small breeding population of Black Skimmers and a Barrow’s 
- 							Goldeneye sometimes spends the winter at Shoreline Lake. The melodious song heard around the Rengstorff House in spring 
+ 							description: "The Palo Alto Baylands and vicinity form an extensive complex of wetlands and uplands that has
+ 							excellent birding opportunities throughout the year. Sora and Virginia’s Rails can be heard calling from the fresh and
+ 							brackish marshes, while Ridgway’s Rails clamor in the salt marshes along the bay edge. The boardwalk around the Lucy
+ 							Evans Nature Center is one of the best places to see the latter species as they strut through the exposed marsh
+ 							channels. Black Rails are also occasionally seen here during king tides in winter. Northern Harriers patrol the
+ 							marshes and uplands at Bixby Park during the day, and sometimes Short-eared Owls emerge at dusk from the adjacent
+ 							Palo Alto Flood Control Basin in winter. A great diversity and abundance of waterbirds can be seen on the salt ponds
+ 							at all times of the year. The baylands are home to a small breeding population of Black Skimmers and a Barrow’s
+ 							Goldeneye sometimes spends the winter at Shoreline Lake. The melodious song heard around the Rengstorff House in spring
  							and summer comes from a nesting pair of Bullock’s Orioles",
- 							short_desc: "The Palo Alto Baylands and vicinity form an extensive complex of wetlands and uplands that has 
- 							excellent birding opportunities throughout the year. Sora and Virginia’s Rails can be heard calling from the fresh and 
+ 							short_desc: "The Palo Alto Baylands and vicinity form an extensive complex of wetlands and uplands that has
+ 							excellent birding opportunities throughout the year. Sora and Virginia’s Rails can be heard calling from the fresh and
  							brackish marshes, while Ridgway’s Rails clamor in the salt marshes along the bay edge.",
  							websiteURL: "https://www.cityofpaloalto.org/gov/depts/csd/parks/preserves/baylands.asp",
  							picURL: "https://i.pinimg.com/originals/3e/1b/58/3e1b5889e8764228ed83c94637b7dae8.jpg",
  							latitude: "37.459905", longitude: "-122.104176"},
 
  							{name: "Alviso",
- 							description: "Several hotspots at the southern end of the bay include parts of Don Edwards San Francisco Bay National 
- 							Wildlife Refuge, Alviso Marina County Park, and nearby grasslands. At Don Edwards, decommissioned salt ponds provide 
- 							expansive habitat for many waterbirds. Wintering ducks, shorebirds, and gulls flock to salt pond A16 especially, where 
- 							nearly 200 species have been found. The islands in this pond provide an excellent study of gulls in the winter, and 
- 							nesting Caspian and Forster’s Terns in the summer. All three teal species plus Common Gallinule can be seen in nearby 
- 							Mallard Slough. Just inland from here, Burrowing Owls are sometimes spotted on dirt mounds in the grassland viewable 
- 							from Disk Drive. At Alviso Marina, the boardwalk crossing the small brackish marsh is a reliable location for Black 
- 							Rails, which are most vociferous in the summer. In fall and winter, the levees around this marsh host large flocks of 
- 							sparrows. In spring and fall, tens of thousands of shorebirds gather at the ponds near the marina, and when flushed they 
- 							swirl around in mesmerizing clouds. The many stellar rarities that have been found here over the years include Little 
+ 							description: "Several hotspots at the southern end of the bay include parts of Don Edwards San Francisco Bay National
+ 							Wildlife Refuge, Alviso Marina County Park, and nearby grasslands. At Don Edwards, decommissioned salt ponds provide
+ 							expansive habitat for many waterbirds. Wintering ducks, shorebirds, and gulls flock to salt pond A16 especially, where
+ 							nearly 200 species have been found. The islands in this pond provide an excellent study of gulls in the winter, and
+ 							nesting Caspian and Forster’s Terns in the summer. All three teal species plus Common Gallinule can be seen in nearby
+ 							Mallard Slough. Just inland from here, Burrowing Owls are sometimes spotted on dirt mounds in the grassland viewable
+ 							from Disk Drive. At Alviso Marina, the boardwalk crossing the small brackish marsh is a reliable location for Black
+ 							Rails, which are most vociferous in the summer. In fall and winter, the levees around this marsh host large flocks of
+ 							sparrows. In spring and fall, tens of thousands of shorebirds gather at the ponds near the marina, and when flushed they
+ 							swirl around in mesmerizing clouds. The many stellar rarities that have been found here over the years include Little
  							Stint, Bar-tailed Godwit, Curlew Sandpiper, Chimney Swift, and even Greater Roadrunner!",
- 							short_desc: "Several hotspots at the southern end of the bay include parts of Don Edwards San Francisco Bay National 
+ 							short_desc: "Several hotspots at the southern end of the bay include parts of Don Edwards San Francisco Bay National
  							Wildlife Refuge, Alviso Marina County Park, and nearby grasslands.",
  							websiteURL: "https://www.sccgov.org/sites/parks/parkfinder/Pages/AlvisoMarina.aspx",
  							picURL: "https://www.sccgov.org/sites/parks/parkfinder/PublishingImages/AlvisoBoardwalk.jpg",
- 							latitude: "37.430259", longitude: "-121.979093"}, 
+ 							latitude: "37.430259", longitude: "-121.979093"},
 
  							{name: "Ravenswood Salt Pond SF2",
- 							description: "The unusual topography of salt pond SF2 is the result of an ambitious restoration experiment by the South 
- 							Bay Salt Pond Restoration Project. Initiated in 2008, thirty islands of varying shapes were created in the former salt 
- 							pond to determine habitat preferences of nesting waterbirds. The experiment was a success, as today the pond supports nesting 
- 							American Avocets, Caspian and Forster’s Terns, and Black Skimmers. Another attraction here are the shorebird flocks, which can 
+ 							description: "The unusual topography of salt pond SF2 is the result of an ambitious restoration experiment by the South
+ 							Bay Salt Pond Restoration Project. Initiated in 2008, thirty islands of varying shapes were created in the former salt
+ 							pond to determine habitat preferences of nesting waterbirds. The experiment was a success, as today the pond supports nesting
+ 							American Avocets, Caspian and Forster’s Terns, and Black Skimmers. Another attraction here are the shorebird flocks, which can
  							number in the tens of thousands at the peak of their migration in April. ",
- 							short_desc: "he unusual topography of salt pond SF2 is the result of an ambitious restoration experiment by the South 
+ 							short_desc: "he unusual topography of salt pond SF2 is the result of an ambitious restoration experiment by the South
  							Bay Salt Pond Restoration Project.",
  							websiteURL: "https://www.southbayrestoration.org/locations/ravenswood-sf2-trail",
  							picURL: "https://www.southbayrestoration.org/sites/default/files/styles/max_1300x1300/public/2019-06/01-794A%20Judy%20Irving%20Pelican%20Media.jpg?itok=WOFOFAst",
  							latitude: "37.481333", longitude: "-122.125304"},
 
  							{name: "Coyote Hills Regional Park",
- 							description: "The Coyote Hills are unique as the only naturally formed hills at the edge of the south bay. Interesting flora 
- 							and geology adorning the hills are best enjoyed in early spring when the wildflowers are blooming. The park is home to most of 
- 							the same birds found at other areas in the bay, but the oak woodland and tall grassland hills here offer something different. 
- 							Rock Wrens spend the winter on the rocky outcrops protruding from the grassland slopes, while California Quails form coveys in 
+ 							description: "The Coyote Hills are unique as the only naturally formed hills at the edge of the south bay. Interesting flora
+ 							and geology adorning the hills are best enjoyed in early spring when the wildflowers are blooming. The park is home to most of
+ 							the same birds found at other areas in the bay, but the oak woodland and tall grassland hills here offer something different.
+ 							Rock Wrens spend the winter on the rocky outcrops protruding from the grassland slopes, while California Quails form coveys in
  							the oak woodland below. The marshes have a growing population of Great-tailed Grackles and often an American Bittern. ",
- 							short_desc: "The Coyote Hills are unique as the only naturally formed hills at the edge of the south bay. Interesting flora 
+ 							short_desc: "The Coyote Hills are unique as the only naturally formed hills at the edge of the south bay. Interesting flora
  							and geology adorning the hills are best enjoyed in early spring when the wildflowers are blooming.",
  							websiteURL: "https://www.ebparks.org/parks/coyote_hills/",
  							picURL: "https://kathrynwarmstrong.files.wordpress.com/2016/03/tom-turkey-at-coyote-hills-regional-park-2.jpg",
  							latitude: "37.55680709085135", longitude: "-122.09410271751118"},
 
  							{name: "Hayward Regional Shoreline",
- 							description: "The extensive network of trails around retired salt ponds at this park provides ample opportunity to explore the 
- 							bay near Hayward. The mosaic of uplands, sloughs, and marshes is a paradise for Northern Harriers in the daytime, and hunting 
- 							grounds at night for a few Short-eared Owls that spend the winter here. The center of the park—called Mt. Trashmore by locals—is 
- 							a grassy plateau that attracts flocks of American Pipits and sometimes longspurs in the fall. A breeding colony of Least 
- 							Terns can be seen on a short walk from the interpretive center at the southern end of the park. This endearing species is one 
- 							of the rarest breeding birds in the bay. In the summer they are a delight to watch at the colony as they return from the bay and 
+ 							description: "The extensive network of trails around retired salt ponds at this park provides ample opportunity to explore the
+ 							bay near Hayward. The mosaic of uplands, sloughs, and marshes is a paradise for Northern Harriers in the daytime, and hunting
+ 							grounds at night for a few Short-eared Owls that spend the winter here. The center of the park—called Mt. Trashmore by locals—is
+ 							a grassy plateau that attracts flocks of American Pipits and sometimes longspurs in the fall. A breeding colony of Least
+ 							Terns can be seen on a short walk from the interpretive center at the southern end of the park. This endearing species is one
+ 							of the rarest breeding birds in the bay. In the summer they are a delight to watch at the colony as they return from the bay and
  							deliver fish to their mate or young.  ",
- 							short_desc: "The extensive network of trails around retired salt ponds at this park provides ample opportunity to explore the 
+ 							short_desc: "The extensive network of trails around retired salt ponds at this park provides ample opportunity to explore the
  							bay near Hayward.",
  							websiteURL: "https://www.ebparks.org/parks/hayward/",
  							picURL: "https://cdn-assets.alltrails.com/uploads/photo/image/24602749/large_26862332d3d851a36045d42271e50568.jpg",
- 							latitude: "37.649128", longitude: "-122.144570"}, 
+ 							latitude: "37.649128", longitude: "-122.144570"},
 
  							{name: "Point Pinole Regional Shoreline",
  							description: "Point Pinole is an expansive peninsula protruding into San Pablo Bay.
-							 The peninsula is covered in a patchwork of eucalyptus forest and grassland. At the edge of the peninsula the grassland gently 
+							 The peninsula is covered in a patchwork of eucalyptus forest and grassland. At the edge of the peninsula the grassland gently
 							 slopes into the salt marshes forming a rare natural transition between these two habitats. The eucalyptus forest is inhabited by
-							 breeding Purple Finches and Bullock's Orioles in spring and summer, and many Yellow-rumped Warblers in the winter. 
-							 A nest box project at this park has greatly enhanced the grassland habitat for cavity nesters such as Western Bluebird, House Wren, and Tree Swallow. 
+							 breeding Purple Finches and Bullock's Orioles in spring and summer, and many Yellow-rumped Warblers in the winter.
+							 A nest box project at this park has greatly enhanced the grassland habitat for cavity nesters such as Western Bluebird, House Wren, and Tree Swallow.
 							 In summer the swarms of Tree Swallows flying low over the grassland can be dizzying.",
  							short_desc: "Point Pinole is an expansive peninsula protruding into San Pablo Bay.",
  							websiteURL: "https://www.ebparks.org/parks/pt_pinole/",
  							picURL: "https://upload.wikimedia.org/wikipedia/commons/d/de/TamFromPinole.jpg",
- 							latitude: "37.99223343", longitude: "-122.356032"}, 
+ 							latitude: "37.99223343", longitude: "-122.356032"},
 
 							{name: "John F. Kennedy Park",
- 							description: "While some distance from the bay, this park maintains a connection via the Napa River which feeds into the bay’s extensive sloughs 
-							 and marshes further downstream. Much of the park is developed but along the western perimeter is a segment of the Bay Trail 
-							 following the Napa River for nearly two miles. The trail is at the same level of the river so waterfowl are easily viewed here 
-							 in fall and winter. An alameda of small oaks and cottonwoods line the trail and can have warblers and Oak Titmouses. 
-							 When the deciduous trees along this trail lose their foliage in winter, old bird nests may be revealed. Look for the hanging nest 
-							 of a Bushtit or the open stick nest of a Northern Mockingbird used in breeding seasons past. A duck 
+ 							description: "While some distance from the bay, this park maintains a connection via the Napa River which feeds into the bay’s extensive sloughs
+							 and marshes further downstream. Much of the park is developed but along the western perimeter is a segment of the Bay Trail
+							 following the Napa River for nearly two miles. The trail is at the same level of the river so waterfowl are easily viewed here
+							 in fall and winter. An alameda of small oaks and cottonwoods line the trail and can have warblers and Oak Titmouses.
+							 When the deciduous trees along this trail lose their foliage in winter, old bird nests may be revealed. Look for the hanging nest
+							 of a Bushtit or the open stick nest of a Northern Mockingbird used in breeding seasons past. A duck
 							 pond on the entrance road is worth checking for interesting waterfowl that sometimes drop in.",
-							 short_desc: "While some distance from the bay, this park maintains a connection via the Napa River which feeds into the bay’s extensive sloughs 
+							 short_desc: "While some distance from the bay, this park maintains a connection via the Napa River which feeds into the bay’s extensive sloughs
 							 and marshes further downstream.",
  							websiteURL: "https://www.cityofnapa.org/Facilities/Facility/Details/Kennedy-Park-28",
  							picURL: "https://assets.simpleviewinc.com/simpleview/image/upload/crm/napavalley/448_8915145d-5056-a36a-0852c8376146fe7f.jpg",
  							latitude: "38.2655389", longitude: "-122.2827163"},
-							
+
 							{name: "Shollenberger Park",
  							description: "Shollenberger Park is an example of how wetlands benefit both wildlife and the citizens that live nearby. The park is a complex series of sea-
 							 sonal wetlands that provide high quality habitat for wildlife while serving as flood protection to nearby neighborhoods. Willows and elderberries

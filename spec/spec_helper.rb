@@ -6,7 +6,7 @@ require File.expand_path('./support/vcr_setup', __dir__)
 WebMock.disable_net_connect!(allow_localhost: true)
 #WebMock.allow_net_connect!
 
-SimpleCov.start 'rails' do 
+SimpleCov.start 'rails' do
   # default rails files
   add_filter "/app/mailers/"
   add_filter "/app/jobs/"

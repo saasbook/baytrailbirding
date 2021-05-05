@@ -1,0 +1,145 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Common+x+Barrow%27s+Goldeneye+%28hybrid%29
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 May 2021 04:45:23 GMT
+      server:
+      - mw1361.eqiad.wmnet
+      x-content-type-options:
+      - nosniff
+      p3p:
+      - CP="See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P for more
+        info."
+      x-frame-options:
+      - SAMEORIGIN
+      content-disposition:
+      - inline; filename=api-result.json
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      cache-control:
+      - private, must-revalidate, max-age=0
+      x-request-id:
+      - 0b887467-b2b6-4cb5-bb98-c97d001c5dcf
+      content-type:
+      - application/json; charset=utf-8
+      age:
+      - '0'
+      x-cache:
+      - cp4031 miss, cp4028 pass
+      x-cache-status:
+      - pass
+      server-timing:
+      - cache;desc="pass", host;desc="cp4028"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      permissions-policy:
+      - interest-cohort=()
+      set-cookie:
+      - WMF-Last-Access=05-May-2021;Path=/;HttpOnly;secure;Expires=Sun, 06 Jun 2021
+        00:00:00 GMT, WMF-Last-Access-Global=05-May-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sun,
+        06 Jun 2021 00:00:00 GMT, GeoIP=US:CA:Albany:37.89:-122.29:v4; Path=/; secure;
+        Domain=.wikipedia.org
+      x-client-ip:
+      - 135.180.0.237
+      accept-ranges:
+      - bytes
+      content-length:
+      - '118'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"Common
+        x Barrow''s Goldeneye (hybrid)","missing":""}}}}'
+  recorded_at: Wed, 05 May 2021 04:45:23 GMT
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&piprop=original&prop=pageimages&redirects=1&titles=Bucephala+clangula+x+islandica
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 May 2021 04:45:23 GMT
+      server:
+      - mw1377.eqiad.wmnet
+      x-content-type-options:
+      - nosniff
+      p3p:
+      - CP="See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P for more
+        info."
+      x-frame-options:
+      - SAMEORIGIN
+      content-disposition:
+      - inline; filename=api-result.json
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      cache-control:
+      - private, must-revalidate, max-age=0
+      x-request-id:
+      - 7a42ef5e-7d81-4489-8f8b-9f3076abf059
+      content-type:
+      - application/json; charset=utf-8
+      age:
+      - '0'
+      x-cache:
+      - cp4027 miss, cp4028 pass
+      x-cache-status:
+      - pass
+      server-timing:
+      - cache;desc="pass", host;desc="cp4028"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      permissions-policy:
+      - interest-cohort=()
+      set-cookie:
+      - WMF-Last-Access=05-May-2021;Path=/;HttpOnly;secure;Expires=Sun, 06 Jun 2021
+        00:00:00 GMT, WMF-Last-Access-Global=05-May-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sun,
+        06 Jun 2021 00:00:00 GMT, GeoIP=US:CA:Albany:37.89:-122.29:v4; Path=/; secure;
+        Domain=.wikipedia.org
+      x-client-ip:
+      - 135.180.0.237
+      accept-ranges:
+      - bytes
+      content-length:
+      - '109'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"Bucephala
+        clangula x islandica","missing":""}}}}'
+  recorded_at: Wed, 05 May 2021 04:45:23 GMT
+recorded_with: VCR 6.0.0
