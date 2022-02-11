@@ -19,10 +19,16 @@ jobs:
         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
-    - name: Build and test with RSpec
+        
+    - name: Build and test with RSpec and Cucumber
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
         exec rake db:create db:migrate
         bundle exec rspec
         bundle exec cucumber
+        
+    - name: Publish code coverage
+      run: |
+        export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+        ./cc-test-reporter after-build -r ${{secrets.CODE_CLIMATE_ID}}
