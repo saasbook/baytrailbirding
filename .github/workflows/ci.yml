@@ -28,7 +28,7 @@ jobs:
         bundle exec rspec
         bundle exec cucumber
         
-    - name: Report coverage
-      run: GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA ./cc-test-reporter after-build -t simplecov --exit-code $?
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_ID }}
