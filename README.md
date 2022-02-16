@@ -1,6 +1,4 @@
 # baytrailbirding
-
-[![Build Status](https://travis-ci.com/rchunter/baytrailbirding.svg?branch=main)](https://travis-ci.com/rchunter/baytrailbirding)
 ![Build Status](https://github.com/debbieyuen/baytrailbirding/actions/workflows/ci.yml/badge.svg)
 [![Code Maintainability](https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/maintainability)](https://codeclimate.com/github/rchunter/baytrailbirding/maintainability)
 [![Code Coverage](https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/test_coverage)](https://codeclimate.com/github/rchunter/baytrailbirding/test_coverage)
