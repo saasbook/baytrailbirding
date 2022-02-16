@@ -6,6 +6,10 @@
 [![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard-informational.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-GH-rchunter_baytrailbirding/main)
 [![Pivotal Tracker](https://img.shields.io/badge/Pivotal-Tracker-informational?logo=pivotal-tracker&logoColor=ffffff)](https://www.pivotaltracker.com/n/projects/2487649)
 
+## Spring 2022 CS169L 
+[![Maintainability](https://api.codeclimate.com/v1/badges/16ea022179c7200774ff/maintainability)](https://codeclimate.com/github/debbieyuen/baytrailbirding/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/16ea022179c7200774ff/test_coverage)](https://codeclimate.com/github/debbieyuen/baytrailbirding/test_coverage)
+
 ## Requirements
 
 * Ruby 2.7
