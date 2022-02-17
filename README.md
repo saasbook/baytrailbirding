@@ -2,7 +2,7 @@
 ![Build Status](https://github.com/debbieyuen/baytrailbirding/actions/workflows/ci.yml/badge.svg)
 [![Code Maintainability](https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/maintainability)](https://codeclimate.com/github/rchunter/baytrailbirding/maintainability)
 [![Code Coverage](https://api.codeclimate.com/v1/badges/c66f5c26d335b3d2b44d/test_coverage)](https://codeclimate.com/github/rchunter/baytrailbirding/test_coverage)
-[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard-informational.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-GH-rchunter_baytrailbirding/main)
+[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_baytrailbirding-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-22-GH-debbieyuen_baytrailbirding/main)
 [![Pivotal Tracker](https://img.shields.io/badge/Pivotal-Tracker-informational?logo=pivotal-tracker&logoColor=ffffff)](https://www.pivotaltracker.com/n/projects/2487649)
 
 ## Spring 2022 CS169L 
