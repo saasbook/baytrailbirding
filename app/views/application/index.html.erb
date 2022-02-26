@@ -124,9 +124,7 @@
     var bird_data = null;
     var bird_images = null;
     var mymap = L.map('mapid').setView([37.42, -121.91], 13);
-    L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={apikey}', {
-        attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        apikey: 'df20324a5586441197c9410773b4ce60',
+    L.tileLayer('https://a.tiles.mapbox.com/styles/v1/lohneswright/ciocejooj006obdnjhmd2x9qp/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG9obmVzd3JpZ2h0IiwiYSI6IngzbVlqNnMifQ.OwxjrBKoGXc60NB5x6GKzw', {
         maxZoom: 22
      }).addTo(mymap);
 
