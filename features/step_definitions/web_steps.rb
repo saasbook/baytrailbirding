@@ -249,6 +249,14 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   end
 end
 
+Then /^I should see the image "(.+)"$/ do |image|
+    page.should have_xpath("//img[contains(@src, \"#{image}\")]")
+end
+
+Then /^I should see the html class "(.+)"$/ do |class2|
+    page.should have_xpath("//*[contains(@class, \"#{class2}\")]")
+end
+
 Then /^show me the page$/ do
   save_and_open_page
 end

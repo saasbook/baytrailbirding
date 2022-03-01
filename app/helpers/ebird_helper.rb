@@ -15,7 +15,7 @@ module EbirdHelper
 
     resp = Faraday.get(url) do |req|
       req.params = ebird_params
-      req.headers = {"X-eBirdApiToken" => "a9qvaguuedjc"}
+      req.headers = {"X-eBirdApiToken" => "3nt7houcf01l"}
     end
 
     body = resp.body
