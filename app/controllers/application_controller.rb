@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
   	@locations_full = Location.all
   end
 
+  def donation
+  end
+
   def calc_location
     @current_location = [37.8039, -122.2591]
     if IPAddress.valid? request.remote_ip and request.remote_ip != '127.0.0.1'
