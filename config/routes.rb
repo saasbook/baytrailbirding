@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'application#index'
   get '/locations', to: 'application#show'
   post '/ebird', to: 'ebird#data'
-  get '/donation', to: 'applications#donation'
+  get '/donation', to: 'application#donation'
 end
