@@ -1,20 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 navigation" style="padding: 0 !important;">
-      <div id="logo">
-        <center>
-
-          <h2 style="margin-bottom: 0;padding-top:3px;">
-            <%= image_tag "sfbbo-logo.jpg" %>
-            <%= link_to 'BIRDING THE BAY TRAIL', root_path, {:style=>'color:#000000; text-decoration:none;', } %>
-
-          </h2>
-          ALL LOCATIONS
-        </center>
-      </div>
-    </div>
-  </div>
-  <br>
+<%= render "header" %>
+<br>
+<center>
+  <h2 style="padding-top:5px;">
+    ALL LOCATIONS
+  </h2>
+</center>
   <div class="row">
     <div class="card-columns">
       <% @locations_full.each do |location| %>
@@ -34,4 +24,4 @@
     </div>
   </div>
 </div>
-<%= render "links" %>
+<%= render "footer" %>
