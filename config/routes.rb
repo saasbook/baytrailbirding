@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/tips', to: 'application#tips'
   post '/ebird', to: 'ebird#data'
   get '/ebird', to: 'ebird#data'
+  get '/donation', to: 'application#donation'
 end
