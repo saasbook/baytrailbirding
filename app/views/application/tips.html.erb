@@ -1,17 +1,5 @@
 <main>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 navigation">
-        <div id="logo">
-          <center>
-            <h2 style="padding-top:5px;">
-              <%= image_tag "sfbbo-logo.jpg" %>
-              <%= link_to 'BIRDING THE BAY TRAIL', root_path, {:style=>'color:#000000; text-decoration:none;', } %>
-        </h2>
-
-        </div>
-      </div>
-    </div>
+  <%= render "header" %>
 </main>
 <center>
 <h2 style="padding:10px">
@@ -94,4 +82,4 @@ Ethically Birding
   https://ebird.org/pnw/news/birding-ethics-guidelines-for-respecting-birds-their-habitat-and-each-other <br>
   https://www.nps.gov/articles/birding-for-beginners.htm
   </p>
-<%= render "links" %>
+<%= render "footer" %>

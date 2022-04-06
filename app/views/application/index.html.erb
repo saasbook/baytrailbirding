@@ -1,19 +1,23 @@
-<%= render "header" %>
-  <div class="row">
-    <div class="col-md-2">
-      <div class="row">
-        <h5>Nearby Locations</h5>
-      </div>
-      <div class="row">
-        <%= link_to 'Show All Locations', locations_path%>
-      </div>
-      <div class="row">
-        <div id="nearby-locations-sidenav" class="sidenav">
-          <% @locations_full.each do |location| %>
-            <div id="location-card" class="card">
-              <div class="card-body">
-                <h5> <%=link_to location.name, location.websiteURL %> </h5>
-                <p class="card-text" style="font-size: 12px;"><h5><%= number_with_precision(hav_distance([location.latitude.to_f, location.longitude.to_f], @current_location), precision: 2) %> mi</h5></p>
+<main>
+  <%= javascript_include_tag 'index' %>
+  <%= render "header" %>
+
+    <div class="row">
+      <div class="col-md-2">
+        <div class="row">
+          <h5>Nearby Locations</h5>
+        </div>
+        <div class="row">
+          <%= link_to 'Show All Locations', locations_path%>
+        </div>
+        <div class="row">
+          <div id="nearby-locations-sidenav" class="sidenav">
+            <% @locations_full.each do |location| %>
+              <div id="location-card" class="card">
+                <div class="card-body">
+                  <h5> <%=link_to location.name, location.websiteURL %> </h5>
+                  <p class="card-text" style="font-size: 12px;"><h5><%= number_with_precision(hav_distance([location.latitude.to_f, location.longitude.to_f], @current_location), precision: 2) %> mi</h5></p>
+                </div>
               </div>
               <br>
               <%= content_tag :div, class: "j-location_info", data: {loc: location} do %><% end %>
@@ -31,17 +35,6 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-  </div>
-</div>
-<%= render "footer" %>
-
-
-
-
-
-=======
->>>>>>> main
 
     <div class="row">
       <div class="col-md-2"></div>
@@ -72,5 +65,5 @@
   </div>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src = "app/javascript/channels/index.js" type="text/javascript"></script>
-  <%= render "links" %>
+  <%= render "footer" %>
 </main>
