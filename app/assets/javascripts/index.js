@@ -136,10 +136,9 @@ window.addEventListener('load', () => {
 		const lng = e.latlng.lng;
 		const settings = {
 			url: '/ebird',
-			method: 'POST',
+			method: 'GET',
 			timeout: 0,
 			data: {
-				authenticity_token: '<%= form_authenticity_token %>',
 				lat,
 				lng,
 				num_req: 100,
@@ -206,10 +205,9 @@ window.addEventListener('load', () => {
 	function hitEbirdEndpoint(pos) {
 		const settings = {
 			url: '/ebird',
-			method: 'POST',
+			method: 'GET',
 			timeout: 0,
 			data: {
-				authenticity_token: '<%= form_authenticity_token %>',
 				lat: pos.coords.latitude,
 				lng: pos.coords.longitude,
 				num_req: 100,
