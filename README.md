@@ -13,6 +13,7 @@
 
 * Ruby 2.7
 * Bundler 2
+* NodeJS v16.x
 
 ## Setup
 
@@ -41,4 +42,11 @@ To run the Cucumber and RSpec tests:
 ```bash
 $ bundle exec cucumber
 $ bundle exec rspec
+```
+
+To run ESLint:
+```bash
+$ npm install
+$ npm run lint
+$ npm run lint:fix
 ```
