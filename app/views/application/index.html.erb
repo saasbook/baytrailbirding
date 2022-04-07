@@ -15,7 +15,7 @@
             <% @locations_full.each do |location| %>
               <div id="location-card" class="card">
                 <div class="card-body">
-                  <h5> <%=link_to location.name, location.websiteURL %> </h5>
+                  <h5><%=link_to location.name, location.websiteURL, target: "_blank"%></h5>
                   <p class="card-text" style="font-size: 12px;"><h5><%= number_with_precision(hav_distance([location.latitude.to_f, location.longitude.to_f], @current_location), precision: 2) %> mi</h5></p>
                 </div>
               </div>
@@ -46,17 +46,6 @@
           <div id="RecentBirdList">
             <div id="header">
               <center>Click on a location pin to see recent bird sightings there in the past 30 days.</center>
-            </div>
-            <div class="scrolling-wrapper">
-              <div class="card"></div>
-              <div class="card"></div>
-              <div class="card"></div>
-              <div class="card"></div>
-              <div class="card"></div>
-              <div class="card"></div>
-              <div class="card"></div>
-              <div class="card"></div>
-              <div class="card"></div>
             </div>
           </div>
         </div>
