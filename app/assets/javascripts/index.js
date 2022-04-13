@@ -95,7 +95,7 @@ window.addEventListener('load', () => {
 			}
 		);
 		mymap.addLayer(marker);
-		marker.bindPopup(`<b>${birddata.comName}</b><br/>${birddata.sciName}.`).openPopup();
+		marker.bindPopup(`<strong>${birddata.comName}</strong><br/>${birddata.sciName}.`).openPopup();
 		marker.on('click', markerOnClick);
 		return marker;
 	}
