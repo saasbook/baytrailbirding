@@ -1,12 +1,6 @@
 // ESLINT:
 /* global L, moment, $ */
-
-
-// Load all the channels within this directory and all subdirectories.
-// Channel files must be named *_channel.js.
-
-// Const channels = require.context('.', true, /_channel\.js$/)
-// Channels.keys().forEach(channels)
+/* eslint no-invalid-this: "off" */
 
 'use strict';
 
@@ -46,11 +40,11 @@ window.addEventListener('load', () => {
 	const legend = L.control({
 		position: 'topright'
 	});
-	legend.onAdd = function(map) {
+	legend.onAdd = function() {
 		const div = L.DomUtil.create('div', 'legend');
-		div.innerHTML += '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" height=41 width=25>Your Location<br>';
-		div.innerHTML += '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png" height=41 width=25>Bird-Watching Park<br>';
-		div.innerHTML += '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" height=41 width=25>Recent Bird Sighting';
+		div.innerHTML += '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" height=41 width=25 alt="Green marker">Your Location<br>';
+		div.innerHTML += '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png" height=41 width=25 alt="Gold marker">Bird-Watching Park<br>';
+		div.innerHTML += '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" height=41 width=25 alt="Blue marker">Recent Bird Sighting';
 		div.style.background = 'silver';
 		return div;
 	};
@@ -60,7 +54,7 @@ window.addEventListener('load', () => {
 		$(elem).empty();
 		$(elem).append(
 			`
-      <img class="card-img-top" src="${imgsrc}">
+      <img class="card-img-top" src="${imgsrc}" alt="Photo of ${birddata.comName}">
       <div class="card-body">
         <h5 class="card-title">${birddata.comName}</h5>
         <h6 class="card-subtitle mb-2 text-muted">${birddata.sciName}</h6>
@@ -87,6 +81,11 @@ window.addEventListener('load', () => {
       `;
 	}
 
+	function markerOnClick() {
+		const i = this.options.name.slice(-1);
+		setContent(birdData[i], birdImages[i], $('#js-com_bird_info'));
+	}
+
 	function setMarker(birddata, index) {
 		const marker = new L.Marker(
 			L.latLng(birddata.lat, birddata.lng),
@@ -101,36 +100,7 @@ window.addEventListener('load', () => {
 		return marker;
 	}
 
-	function setLoc(locData) {
-		const marker = new L.Marker(
-			L.latLng(locData.latitude, locData.longitude),
-			{
-				name: locData.name,
-				icon: yellowIcon
-			}
-		);
-		mymap.addLayer(marker);
-		const urlLoc = locData.name.replace(/ /g, '+');
-		marker.bindPopup(`<center><b>${locData.name}</b></center>
-                      <br/><img src="${locData.picURL}" width=300 height=200>
-                      <br/> ${locData.short_desc}
-                      <br/><a href="${locData.websiteURL}">Website</a>
-                      <br/> <a href="https://www.google.com/maps/dir/?api=1&destination=${urlLoc}">Get Directions</a>`).openPopup();
-		marker.on('click', locMarkerOnClick);
-		return marker;
-	}
-
-	function getLocation() {
-		if (navigator.geolocation) navigator.geolocation.getCurrentPosition(parallelHitEbirdEndpoint);
-		else parallelHitEbirdEndpoint(null, new Error('no location'));
-	}
-
-	function markerOnClick(e) {
-		const i = this.options.name.slice(-1);
-		setContent(birdData[i], birdImages[i], $('#js-com_bird_info'));
-	}
-
-	function locMarkerOnClick(e) {
+	function locMarkerClick(e) {
 		const locName = e.sourceTarget.options.name;
 		const lat = e.latlng.lat;
 		const lng = e.latlng.lng;
@@ -172,37 +142,26 @@ window.addEventListener('load', () => {
 		});
 	}
 
-	function createPos(form) {
-		const pos = {
-			coords: {
-				latitude: parseFloat(form.lat.value),
-				longitude: parseFloat(form.lng.value)
+	function setLoc(locData) {
+		const marker = new L.Marker(
+			L.latLng(locData.latitude, locData.longitude),
+			{
+				name: locData.name,
+				icon: yellowIcon
 			}
-		};
-		parallelHitEbirdEndpoint(pos);
-	}
-
-
-	async function parallelHitEbirdEndpoint(pos, err) {
-		if (err) {
-			console.error(err);
-			pos = {
-				coords: {
-					latitude: 37.8039,
-					longitude: -122.2591
-				}
-			};
-		}
-		const curPos = new L.LatLng(pos.coords.latitude, pos.coords.longitude);
-		mymap.panTo(curPos);
-		const marker = new L.Marker(curPos, {
-			icon: greenIcon
-		});
+		);
 		mymap.addLayer(marker);
-		marker.bindPopup('<b>You are here</b>').openPopup();
-		hitEbirdEndpoint(pos, false);
+		const urlLoc = locData.name.replace(/ /g, '+');
+		marker.bindPopup(`<center><b>${locData.name}</b></center>
+                      <br/><img src="${locData.picURL}" width=300 height=200 alt="Photo of ${locData.name}">
+                      <br/> ${locData.short_desc}
+                      <br/><a href="${locData.websiteURL}">Website</a>
+                      <br/> <a href="https://www.google.com/maps/dir/?api=1&destination=${urlLoc}">Get Directions</a>`).openPopup();
+		marker.on('click', locMarkerClick);
+		return marker;
 	}
-	function hitEbirdEndpoint(pos) {
+
+	function ebirdEndpoint(pos) {
 		const settings = {
 			url: '/ebird',
 			method: 'GET',
@@ -226,6 +185,31 @@ window.addEventListener('load', () => {
 			const group = new L.featureGroup(markers);
 			mymap.fitBounds(group.getBounds().pad(0.2));
 		});
+	}
+
+	function parallelPoint(pos, err) {
+		if (err) {
+			console.error(err);
+			pos = {
+				coords: {
+					latitude: 37.8039,
+					longitude: -122.2591
+				}
+			};
+		}
+		const curPos = new L.LatLng(pos.coords.latitude, pos.coords.longitude);
+		mymap.panTo(curPos);
+		const marker = new L.Marker(curPos, {
+			icon: greenIcon
+		});
+		mymap.addLayer(marker);
+		marker.bindPopup('<b>You are here</b>').openPopup();
+		ebirdEndpoint(pos, false);
+	}
+
+	function getLocation() {
+		if (navigator.geolocation) navigator.geolocation.getCurrentPosition(parallelPoint);
+		else parallelPoint(null, new Error('no location'));
 	}
 
 	getLocation();
