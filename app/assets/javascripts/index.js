@@ -70,9 +70,7 @@ window.addEventListener('load', () => {
 	function setContentLoc(i, birddata, imgsrc, elem) {
 		$(elem)[i].innerHTML
       += `
-        <center>
-        <img class="card-img-top" src="${imgsrc}" style="width: 10rem; height: 10rem;">
-        </center>
+        <img class="card-img-top text-center" src="${imgsrc}" style="width: 10rem; height: 10rem;">
         <div class="card-body" style="padding: 0">
           <a href="https://ebird.org/species/${birddata.speciesCode}"> <h5 class="card-title">${birddata.comName}</h5> </a>
           <h6 class="card-subtitle mb-2 text-muted">${birddata.sciName}</h6>
