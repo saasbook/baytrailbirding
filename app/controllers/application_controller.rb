@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def show
     calc_location()
-  	@locations_full = Location.all
+  	@locations_full = Location.all.sort_by{|location| hav_distance([location.latitude.to_f, location.longitude.to_f], @current_location)}
   end
 
   def calc_location
