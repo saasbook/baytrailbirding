@@ -102,7 +102,7 @@ locations = Location.create([{name: "Heron's Head Park",
  							short_desc: "Several hotspots at the southern end of the bay include parts of Don Edwards San Francisco Bay National
  							Wildlife Refuge, Alviso Marina County Park, and nearby grasslands.",
  							websiteURL: "https://www.sccgov.org/sites/parks/parkfinder/Pages/AlvisoMarina.aspx",
- 							picURL: "https://parks.sccgov.org/sites/g/files/exjcpb961/files/styles/large/public/images/AlvisoBoardwalk.jpg?itok=53xIk-1_",
+ 							picURL: "http://sfbaywatertrail.org/wp-content/uploads/2022/04/Alviso_Botkin_040815-21-1920x0-cropped.jpg",
  							latitude: "37.430259", longitude: "-121.979093"},
 
  							{name: "Ravenswood Salt Pond SF2",
@@ -282,7 +282,7 @@ locations = Location.create([{name: "Heron's Head Park",
 							short_desc:"Hudeman Slough is one of many waterways through the expansive landscape of grain fields, vineyards, and wetlands in
 							this area.",
 						 	websiteURL:"https://www.sonomahikingtrails.com/parks/hudeman-slough-wetlands/",
-							picURL:"https://parks.sonomacounty.ca.gov/Ektron%20Images/uploadedImages/Parks/-_Content_New/_Uploaded_Images/_Carousel/_Parks/_Hudeman_Slough_Boat_Launch/hudeman-slough-750.JPG",
+							picURL:"https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMzI5OTQ5OTQvNmFhOWM3NjZiM2M1YzMxMjFjNzAxZDMzMmNkYjgyYWEuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0=",
 							latitude:"38.20574612502795",
 						 	longitude: "-122.37440231578378",
 							}
