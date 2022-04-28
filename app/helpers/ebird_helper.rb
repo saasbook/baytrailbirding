@@ -82,7 +82,7 @@ module EbirdHelper
   def getImageFromName(name)
     #check cache for bird name
     if Rails.cache.exist?(name)
-      print("working")
+      print(Rails.cache.read(name))
       return Rails.cache.read(name)
     end
     wikimedia_params = {
