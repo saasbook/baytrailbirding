@@ -165,10 +165,7 @@ module EbirdHelper
     return img_src
   end
 
-
-
   def getImageFromName(name)
-
     #check cache for bird name
     wikimedia_params = {
       :action => "query",
@@ -178,7 +175,6 @@ module EbirdHelper
       :titles => name,
       :redirects => 1
     }
-
 
     resp = Faraday.get("https://en.wikipedia.org/w/api.php") do |req|
       req.params = wikimedia_params
