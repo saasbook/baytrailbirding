@@ -165,11 +165,11 @@ module EbirdHelper
     return img_src
   end
 
-
-
   def getImageFromName(name)
-
     #check cache for bird name
+    if Rails.cache.exist?(name)
+      return Rails.cache.read(name)
+    end
     wikimedia_params = {
       :action => "query",
       :prop => "pageimages",
@@ -178,7 +178,6 @@ module EbirdHelper
       :titles => name,
       :redirects => 1
     }
-
 
     resp = Faraday.get("https://en.wikipedia.org/w/api.php") do |req|
       req.params = wikimedia_params
@@ -192,6 +191,7 @@ module EbirdHelper
     image_src = first_page["original"]["source"]
 
     #put bird name and image into cache
+    Rails.cache.write(name, image_src)
     return image_src
 
   end
