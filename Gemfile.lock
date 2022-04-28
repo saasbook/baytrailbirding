@@ -119,7 +119,6 @@ GEM
       cucumber-core (~> 8.0, >= 8.0.1)
       cucumber-cucumber-expressions (~> 10.3, >= 10.3.0)
       cucumber-messages (~> 13.0, >= 13.0.1)
-    dalli (3.2.1)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
     database_cleaner-active_record (2.0.0)
@@ -324,7 +323,6 @@ DEPENDENCIES
   byebug
   cucumber-rails
   cucumber-rails-training-wheels
-  dalli
   database_cleaner
   faraday
   geocoder
