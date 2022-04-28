@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'application#index'
   get '/locations', to: 'application#show'
   get '/tips', to: 'application#tips'
-  post '/ebird', to: 'ebird#data'
-  get '/ebird', to: 'ebird#data'
+  get '/ebird/birds', to: 'ebird#birds'
+  get '/ebird/bird', to: 'ebird#bird'
+  get '/ebird/hotspots', to: 'ebird#hotspots'
   get '/donation', to: 'application#donation'
 end

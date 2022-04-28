@@ -1,19 +1,35 @@
 require 'net/http'
 require 'json'
 include ActionView::Helpers::NumberHelper
+include EbirdHelper
 
 class EbirdController < ApplicationController
-  include EbirdHelper
-  def data
-      lat = params[:lat]
-      lng = params[:lng]
-      num_req = params[:num_req].to_i || 100
-      num_ret = params[:num_ret].to_i || 1
-      selected_birds = getBirdData(lat, lng, num_req, num_ret)
-      img_src = []
-      selected_birds.each { |bird_data|
-          img_src.append(getImageSrc(bird_data))
-      }
-      render :json => {'imgsrc':img_src,'birddata':selected_birds}
+  def birds
+    lat = params[:lat].to_f
+    lng = params[:lng].to_f
+    radius = (params[:radius] || 50).to_i
+    hotspot = params[:hotspot]
+    birds = []
+    if hotspot
+      birds = getHotspotBirdData(hotspot);
+    else
+      birds = getBirdData(lat, lng, radius);
+    end
+    render :json => birds
+  end
+  def bird
+    sci = params[:sci]
+    com = params[:com]
+    img = getImageSrc(com, sci)
+    render :json => {
+      :img => img
+    }  
+  end
+  def hotspots
+    lat = params[:lat].to_f
+    lng = params[:lng].to_f
+    radius = (params[:radius] || 50).to_i
+    hotspots = getHotspotData(lat, lng, radius);
+    render :json => hotspots
   end
 end

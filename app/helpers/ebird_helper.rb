@@ -3,12 +3,11 @@ require 'json'
 include ActionView::Helpers::NumberHelper
 
 module EbirdHelper
-  def getBirdData(lat,lng, num_req=100, num_ret=1)
+  def getBirdData(lat, lng, radius)
     ebird_params = {  :lat => number_with_precision(lat, precision: 2),
                       :lng => number_with_precision(lng, precision: 2),
-                      :maxResults => num_req,
                       :back => 10,
-                      :dist => 25,
+                      :dist => radius,
                     }
 
     url = "https://api.ebird.org/v2/data/obs/geo/recent/"
@@ -20,29 +19,116 @@ module EbirdHelper
 
     body = resp.body
 
+    body = JSON.parse(body)
 
-    bird_data = select_random_birds(JSON.parse(body),num_ret)
+    birds = select_random_birds(body, body.length())
 
+    birds.select{ |bird| bird["howMany"].to_i > 1 }.map{ |bird| format_bird(bird, lat, lng) }
 
-    #bird_data = addBirdDist(lat, lng, bird_data)
-    bird_data.each do |bird|
-      bird["distTo"] = number_with_precision(hav_distance([lat.to_f,lng.to_f],
-                                          [ bird["lat"].to_f,bird["lng"].to_f],
-                                          true), precision: 1);
+  end
+
+  def getHotspotBirdData(hotspot)
+    ebird_params = {
+                      :back => 10,
+                    }
+
+    url = "https://api.ebird.org/v2/data/obs/#{hotspot}/recent/"
+
+    resp = Faraday.get(url) do |req|
+      req.params = ebird_params
+      req.headers = {"X-eBirdApiToken" => "3nt7houcf01l"}
     end
-    return bird_data
 
+    body = resp.body
+
+    body = JSON.parse(body)
+
+    birds = select_random_birds(body, body.length())
+
+    birds.map{ |bird| format_bird(bird, 0.to_f, 0.to_f) }
+
+  end
+
+  def getHotspotData(lat, lng, radius)
+    ebird_params = {  :lat => number_with_precision(lat, precision: 2),
+                      :lng => number_with_precision(lng, precision: 2),
+                      :back => 10,
+                      :dist => radius,
+                      :fmt => "json"
+                    }
+
+    url = "https://api.ebird.org/v2/ref/hotspot/geo"
+
+    resp = Faraday.get(url) do |req|
+      req.params = ebird_params
+      req.headers = {"X-eBirdApiToken" => "3nt7houcf01l"}
+    end
+
+    body = resp.body
+
+    hotspots = JSON.parse(body)
+
+    return hotspots.map{|hotspot| format_hotspot(hotspot)}
+
+  end
+
+  def format_bird(bird, lat, lng)
+    {
+      # Identifiers
+      "speciesCode": bird["speciesCode"],
+      "subId": bird["subId"],
+      # Name data
+      "name": {
+        "sci": bird["sciName"],
+        "com": bird["comName"]
+      },
+      # Location data
+      "loc": {
+        "id": bird["locId"],
+        "name": bird["locName"],
+        "lat": bird["lat"],
+        "lng": bird["lng"],
+        "private": bird["locationPrivate"],
+        "dist": number_with_precision(hav_distance([lat, lng], [bird["lat"], bird["lng"]], true), precision: 1)
+      },
+      # Observation data
+      "obs": {
+        "date": bird["obsDt"],
+        "cnt": bird["howMany"],
+        "valid": bird["obsValid"],
+        "reviewed": bird["obsReviewed"]
+      },
+      # Get the image
+      # TODO: Cache this image data so that we don't need to requery wikipedia, you could probably use an id of the species code
+      #"img": getImageSrc(bird)
+      "img": nil
+    }
+  end
+
+  def format_hotspot(hotspot)
+    {
+      "loc": {
+        "id": hotspot["locId"],
+        "name": hotspot["locName"],
+        "lat": hotspot["lat"],
+        "lng": hotspot["lng"]
+      },
+      "code": {
+        "country": hotspot["countryCode"],
+        "subnat1": hotspot["subnational1Code"],
+        "subnat2": hotspot["subnational2Code"]
+      },
+      "obs": {
+        "date": hotspot["latestObsDt"]
+      },
+      "cnt": hotspot["numSpeciesAllTime"]
+    }
   end
 
   #need to make new function to stub it dumb hate this
   def select_random_birds(birds, num_ret)
     birds.sample(num_ret)
   end
-
-  #def addBirdDist(lat,lng,bird_data)
-  #    bird_data.map {|x| haversine_distance_wrapper(x,3)}
-  #    haversine_distance(lat,lng,bird_data)
-  #end
 
   def hav_distance(geo_a, geo_b, miles=false)
     # Get latitude and longitude
@@ -65,13 +151,13 @@ module EbirdHelper
     d = 6371 * c * (miles ? 1 / 1.6 : 1)
   end
 
-  def getImageSrc(bird_data)
+  def getImageSrc(com, sci)
     img_src = 'never set'
     begin
-      img_src = getImageFromName(bird_data["comName"])
+      img_src = getImageFromName(com)
     rescue NoMethodError => e1
       begin
-        img_src = getImageFromName(bird_data["sciName"])
+        img_src = getImageFromName(sci)
       rescue NoMethodError => e2
         img_src = nil
       end
