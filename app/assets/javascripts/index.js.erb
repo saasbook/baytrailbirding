@@ -48,8 +48,10 @@ class Location {
 	 */
 	constructor(location) {
 		Object.assign(this, JSON.parse(JSON.stringify(location)));
-		//this.obs.date = new Date(this.obs.date);
+
+		// This.obs.date = new Date(this.obs.date);
 		this.latLng = L.latLng(this.latitude, this.longitude);
+
 		// TODO
 	}
 
@@ -204,7 +206,7 @@ class Ebird {
 		const url = '/ebird/locations';
 		const data = {
 		};
-		
+
 
 		const locations = await API.get(url, data);
 		return locations.map(Location.from);
@@ -251,8 +253,8 @@ class BirdMap {
 		const bounds = currentPosition.toBounds(m);
 
 		this.locations = L.markerClusterGroup();
-		this.location_markers = L.layerGroup([this.locations])
-		this.map.addLayer(this.location_markers)
+		this.location_markers = L.layerGroup([this.locations]);
+		this.map.addLayer(this.location_markers);
 
 		this.map.once('moveend', () => {
 			this.map.setMinZoom(this.map.getZoom());
@@ -563,7 +565,6 @@ class BirdMap {
 
 
 			this.map.addLayer(this.position);
-
 		}
 		this.position.setLatLng(latLng);
 	}
