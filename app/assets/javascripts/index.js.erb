@@ -48,10 +48,7 @@ class Location {
 	 */
 	constructor(location) {
 		Object.assign(this, JSON.parse(JSON.stringify(location)));
-
-		// This.obs.date = new Date(this.obs.date);
 		this.latLng = L.latLng(this.latitude, this.longitude);
-
 		// TODO
 	}
 
@@ -204,8 +201,7 @@ class Ebird {
 	 */
 	static async getLocations(lat, lng) {
 		const url = '/ebird/locations';
-		const data = {
-		};
+		const data = {};
 
 
 		const locations = await API.get(url, data);
@@ -328,7 +324,6 @@ class BirdMap {
 	async getLocations() {
 		const { lat, lng } = this.getCurrPosition();
 		const locations = await Ebird.getLocations(lat, lng);
-		const bounds = this.map.getBounds();
 		const markers = locations
 			.map(location => this.createLocation(location));
 
@@ -474,13 +469,13 @@ class BirdMap {
 		const icon = L.divIcon({
 			html: '<i class="fa-solid fa-location-dot"></i>',
 			iconSize: [80, 80],
-			className: 'bird-icon'
+			className: 'location-icon'
 		});
 
 		const selectedIcon = L.divIcon({
 			html: '<i class="fa-solid fa-location-dot"></i>',
 			iconSize: [80, 80],
-			className: 'bird-icon-selected'
+			className: 'location-icon-selected'
 		});
 
 		const marker = this.createMarker(latLng, location.subId, icon, selectedIcon);
@@ -520,13 +515,13 @@ class BirdMap {
 	 */
 	async load() {
 		const hotspots = await this.getHotspots();
-		this.locations.insert(...hotspots);
+		this.hotspots.insert(...hotspots);
 
 		const birds = await this.getBirds();
 		this.birds.insert(...birds);
 
-		const locations2 = await this.getLocations();
-		this.locations.insert(...locations2);
+		const locations = await this.getLocations();
+		this.locations.insert(...locations);
 	}
 
 	/**
