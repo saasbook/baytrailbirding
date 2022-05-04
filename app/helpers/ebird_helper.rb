@@ -70,7 +70,7 @@ module EbirdHelper
     hotspots.map { |hotspot| format_hotspot(hotspot) }
   end
 
-  def format_bird(bird, lat, lng)
+  def format_bird(bird)
     {
       # Identifiers
       "speciesCode": bird['speciesCode'],
