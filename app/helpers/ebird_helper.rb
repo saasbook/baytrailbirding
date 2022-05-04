@@ -25,7 +25,7 @@ module EbirdHelper
 
     birds = select_random_birds(body, body.length)
 
-    birds.select { |bird| bird['howMany'].to_i > 1 }.map { |bird| format_bird(bird, lat, lng) }
+    birds.select { |bird| bird['howMany'].to_i > 1 }.map { |bird| format_bird(bird) }
   end
 
   def get_hotspot_bird_data(hotspot)
@@ -46,7 +46,7 @@ module EbirdHelper
 
     birds = select_random_birds(body, body.length)
 
-    birds.map { |bird| format_bird(bird, 0.to_f, 0.to_f) }
+    birds.map { |bird| format_bird(bird) }
   end
 
   def get_hotspot_data(lat, lng, radius)
