@@ -86,8 +86,7 @@ module EbirdHelper
         "name": bird['locName'],
         "lat": bird['lat'],
         "lng": bird['lng'],
-        "private": bird['locationPrivate'],
-        "dist": number_with_precision(hav_distance([lat, lng], [bird['lat'], bird['lng']], true), precision: 1)
+        "private": bird['locationPrivate']
       },
       # Observation data
       "obs": {
@@ -119,7 +118,7 @@ module EbirdHelper
     }
   end
 
-  # need to make new function to stub it dumb hate this
+  # Used to stub for testing
   def select_random_birds(birds, num_ret)
     birds.sample(num_ret)
   end
@@ -146,13 +145,13 @@ module EbirdHelper
   end
   # rubocop:enable Metrics/AbcSize
 
-  def get_img_src(com, sci)
+  def get_img_src(common_name, scientific_name)
     img_src = nil
     begin
-      img_src = get_img_from_name(com)
+      img_src = get_img_from_name(common_name)
     rescue NoMethodError
       begin
-        img_src = get_img_from_name(sci)
+        img_src = get_img_from_name(scientific_name)
       rescue NoMethodError => e
         print(e)
       end

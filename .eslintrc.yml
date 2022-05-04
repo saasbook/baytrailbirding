@@ -290,3 +290,4 @@ rules:
   yield-star-spacing: error
   no-undef: warn
   no-var: error
+  no-console: error

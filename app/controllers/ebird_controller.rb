@@ -12,7 +12,7 @@ class EbirdController < ApplicationController
     lng = params[:lng].to_f
     radius = (params[:radius] || 50).to_i
     hotspot = params[:hotspot]
-    birds = hotspot ? getHotspotBirdData(hotspot) : get_bird_data(lat, lng, radius)
+    birds = hotspot ? get_hotspot_bird_data(hotspot) : get_bird_data(lat, lng, radius)
     render json: birds
   end
 

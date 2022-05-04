@@ -49,7 +49,7 @@ class Location {
 	constructor(location) {
 		Object.assign(this, JSON.parse(JSON.stringify(location)));
 
-		// TODO
+		// TODO: See comments above
 	}
 
 	/**
@@ -200,7 +200,7 @@ class Ebird {
 	 * @returns {Promise<Location[]>} A promise to a list of formatted locations
 	 */
 	static async getLocations() {
-		// TODO
+		// TODO: See method comment above
 	}
 }
 
@@ -313,7 +313,7 @@ class BirdMap {
 	 * @returns {Promise<L.Marker[]>} A promise to a list of location markers
 	 */
 	async getLocations() {
-		// TODO
+		// TODO: See method comment above
 	}
 
 	/**
@@ -438,7 +438,7 @@ class BirdMap {
 		 * 		displays the birds on a grid with the hotspot data
 		 */
 		marker.on('click', () => {
-			// TODO
+			// TODO: See implementation comment above
 		});
 
 		return marker;
@@ -450,7 +450,7 @@ class BirdMap {
 	 * @returns {L.Marker} Marker representing a location
 	 */
 	createLocation(location) {
-		// TODO
+		// TODO: See method above
 	}
 
 	/**
@@ -498,11 +498,7 @@ class BirdMap {
 			});
 			this.position = marker;
 
-			console.log(this.position);
-
 			this.map.addLayer(this.position);
-
-			console.log('Nice');
 		}
 		this.position.setLatLng(latLng);
 	}

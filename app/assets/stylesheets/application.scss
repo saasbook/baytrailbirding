@@ -48,7 +48,6 @@ $gold: #FFCD1A;
 .header {
 	display: flex;
 	position: relative;
-	//background-color: red;
 	align-items: center;
 	justify-content: space-between;
 	margin: 10px;
@@ -107,14 +106,10 @@ $gold: #FFCD1A;
 	display: flex;
 	position: absolute;
 	background-color: $white;
-	// bottom: -30vh; // FIX
 	left: 10px;
-	// width: 100%;
 	width: 50vw;
 	flex-direction: column;
 	align-items: center;
-	// border-top-left-radius: 40px;
-	// border-top-right-radius: 40px;
 	border-radius: 10px;
 	box-shadow: 5px 5px 40px rgba($black, 0.3);
 
