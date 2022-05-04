@@ -2,10 +2,11 @@
 
 require 'faraday'
 require 'json'
-include ActionView::Helpers::NumberHelper
 
+# Helper for communicating with the Ebird REST API
 module EbirdHelper
-  def getBirdData(lat, lng, radius)
+  include ActionView::Helpers::NumberHelper
+  def get_bird_data(lat, lng, radius)
     ebird_params = {  lat: number_with_precision(lat, precision: 2),
                       lng: number_with_precision(lng, precision: 2),
                       back: 10,
@@ -27,7 +28,7 @@ module EbirdHelper
     birds.select { |bird| bird['howMany'].to_i > 1 }.map { |bird| format_bird(bird, lat, lng) }
   end
 
-  def getHotspotBirdData(hotspot)
+  def get_hotspot_bird_data(hotspot)
     ebird_params = {
       back: 10
     }
@@ -48,7 +49,7 @@ module EbirdHelper
     birds.map { |bird| format_bird(bird, 0.to_f, 0.to_f) }
   end
 
-  def getHotspotData(lat, lng, radius)
+  def get_hotspot_data(lat, lng, radius)
     ebird_params = {  lat: number_with_precision(lat, precision: 2),
                       lng: number_with_precision(lng, precision: 2),
                       back: 10,
@@ -94,11 +95,7 @@ module EbirdHelper
         "cnt": bird['howMany'],
         "valid": bird['obsValid'],
         "reviewed": bird['obsReviewed']
-      },
-      # Get the image
-      # TODO: Cache this image data so that we don't need to requery wikipedia, you could probably use an id of the species code
-      # "img": getImageSrc(bird)
-      "img": nil
+      }
     }
   end
 
@@ -127,41 +124,43 @@ module EbirdHelper
     birds.sample(num_ret)
   end
 
+  # rubocop:disable Metrics/AbcSize
   def hav_distance(geo_a, geo_b, miles = false)
     # Get latitude and longitude
     lat1, lon1 = geo_a
     lat2, lon2 = geo_b
 
     # Calculate radial arcs for latitude and longitude
-    dLat = (lat2 - lat1) * Math::PI / 180
-    dLon = (lon2 - lon1) * Math::PI / 180
+    d_lat = (lat2 - lat1) * Math::PI / 180
+    d_lon = (lon2 - lon1) * Math::PI / 180
 
-    a = Math.sin(dLat / 2) *
-        Math.sin(dLat / 2) +
+    a = Math.sin(d_lat / 2) *
+        Math.sin(d_lat / 2) +
         Math.cos(lat1 * Math::PI / 180) *
         Math.cos(lat2 * Math::PI / 180) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2)
+        Math.sin(d_lon / 2) * Math.sin(d_lon / 2)
 
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
-    d = 6371 * c * (miles ? 1 / 1.6 : 1)
+    6371 * c * (miles ? 1 / 1.6 : 1)
   end
+  # rubocop:enable Metrics/AbcSize
 
-  def getImageSrc(com, sci)
-    img_src = 'never set'
+  def get_img_src(com, sci)
+    img_src = nil
     begin
-      img_src = getImageFromName(com)
-    rescue NoMethodError => e
+      img_src = get_img_from_name(com)
+    rescue NoMethodError
       begin
-        img_src = getImageFromName(sci)
-      rescue NoMethodError => e2
-        img_src = nil
+        img_src = get_img_from_name(sci)
+      rescue NoMethodError => e
+        print(e)
       end
     end
     img_src
   end
 
-  def getImageFromName(name)
+  def get_img_from_name(name)
     # check cache for bird name
     wikimedia_params = {
       action: 'query',

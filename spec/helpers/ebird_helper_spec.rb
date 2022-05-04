@@ -14,22 +14,22 @@ require 'vcr'
 #   end
 # end
 RSpec.describe EbirdHelper, type: :helper do
-  describe 'getBirdData' do
+  describe 'get_bird_data' do
     it 'given coords, it returns a nearby bird' do
       VCR.use_cassette('ebird/get_bird_from_cords') do
         lat = 37.42.to_f
         lng = -121.91.to_f
-        bird = getBirdData(lat, lng, 25).first
+        bird = get_bird_data(lat, lng, 25).first
         expect(hav_distance([lat, lng], [bird[:loc][:lat], bird[:loc][:lng]], true)).to be <= 25
       end
     end
   end
-  describe 'getImageSrc' do
+  describe 'get_img_src' do
     it 'given data with a common name, returns an image' do
       VCR.use_cassette('ebird/get_image_src/common_name') do
         com = 'Canada Goose'
         sci = 'Branta canadensis'
-        image = getImageSrc(com, sci)
+        image = get_img_src(com, sci)
         expect(image).to eq 'https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg'
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe EbirdHelper, type: :helper do
       VCR.use_cassette('ebird/get_image_src/scientific_name') do
         com = 'Sora'
         sci = 'porzana carolina'
-        image = getImageSrc(com, sci)
+        image = get_img_src(com, sci)
         expect(image).to eq 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Sora_%28Porzana_carolina%29.jpg'
       end
     end
@@ -45,16 +45,16 @@ RSpec.describe EbirdHelper, type: :helper do
       VCR.use_cassette('ebird/get_image_src/ambiguous_names') do
         com = "Common x Barrow's Goldeneye (hybrid)"
         sci = 'Bucephala clangula x islandica'
-        image = getImageSrc(com, sci)
+        image = get_img_src(com, sci)
         expect(image).to eq nil
       end
     end
   end
-  describe 'getImageFromName' do
+  describe 'get_img_from_name' do
     it 'given name, it returns an image' do
       VCR.use_cassette('ebird/get_image_from_name') do
         name = 'Canada Goose'
-        image = getImageFromName(name)
+        image = get_img_from_name(name)
         expect(image).to eq 'https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg'
       end
     end

@@ -25,6 +25,7 @@ require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
 
+# Check scope of helpers
 module WithinHelpers
   def with_scope(locator, &block)
     locator ? within(*selector_for(locator), &block) : yield
@@ -256,6 +257,8 @@ Then(/^I should see the html class "(.+)"$/) do |class2|
   page.should have_xpath("//*[contains(@class, \"#{class2}\")]")
 end
 
+# rubocop:disable Lint/Debugger
 Then(/^show me the page$/) do
   save_and_open_page
 end
+# rubocop:enable Lint/Debugger

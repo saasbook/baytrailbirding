@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Handles rendering pages that do not use the Ebird API
 class ApplicationController < ActionController::Base
   include EbirdHelper
   def index
@@ -18,10 +19,11 @@ class ApplicationController < ActionController::Base
 
   def calc_location
     @current_location = [37.8039, -122.2591]
-    if IPAddress.valid?(request.remote_ip) && (request.remote_ip != '127.0.0.1')
-      user_IP = request.remote_ip
-      results = Geocoder.search(user_IP)
-      @current_location = results.first.coordinates if results.first.coordinates&.any?
-    end
+
+    return unless IPAddress.valid?(request.remote_ip) && (request.remote_ip != '127.0.0.1')
+
+    user_ip = request.remote_ip
+    results = Geocoder.search(user_ip)
+    @current_location = results.first.coordinates if results.first.coordinates&.any?
   end
 end

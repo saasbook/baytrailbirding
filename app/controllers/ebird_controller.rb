@@ -2,28 +2,24 @@
 
 require 'net/http'
 require 'json'
-include ActionView::Helpers::NumberHelper
-include EbirdHelper
 
+# General API for birds/hotspots
 class EbirdController < ApplicationController
+  include ActionView::Helpers::NumberHelper
+  include EbirdHelper
   def birds
     lat = params[:lat].to_f
     lng = params[:lng].to_f
     radius = (params[:radius] || 50).to_i
     hotspot = params[:hotspot]
-    birds = []
-    birds = if hotspot
-              getHotspotBirdData(hotspot)
-            else
-              getBirdData(lat, lng, radius)
-            end
+    birds = hotspot ? getHotspotBirdData(hotspot) : get_bird_data(lat, lng, radius)
     render json: birds
   end
 
   def bird
     sci = params[:sci]
     com = params[:com]
-    img = getImageSrc(com, sci)
+    img = get_img_src(com, sci)
     render json: {
       img: img
     }
@@ -33,7 +29,7 @@ class EbirdController < ApplicationController
     lat = params[:lat].to_f
     lng = params[:lng].to_f
     radius = (params[:radius] || 50).to_i
-    hotspots = getHotspotData(lat, lng, radius)
+    hotspots = get_hotspot_data(lat, lng, radius)
     render json: hotspots
   end
 end
