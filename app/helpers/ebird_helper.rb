@@ -153,7 +153,7 @@ module EbirdHelper
       begin
         img_src = get_img_from_name(scientific_name)
       rescue NoMethodError => e
-        print(e)
+        puts(e)
       end
     end
     img_src
