@@ -450,7 +450,7 @@ class BirdMap {
 	 * @returns {L.Marker} Marker representing a location
 	 */
   createLocation(location) {
-    // TODO: See method above
+    // TODO: See method comment above
   }
 
   /**

@@ -45,6 +45,10 @@ $gold: #FFCD1A;
 	font-family: 'Mulish', sans-serif;
 }
 
+[disabled] {
+	cursor: not-allowed !important;
+}
+
 .header {
 	display: flex;
 	position: relative;
