@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Facility < ApplicationRecord
   validates :name, :icon, presence: true
   validates :name, uniqueness: true
