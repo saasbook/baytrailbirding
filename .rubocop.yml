@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'db/seeds.rb'
+    - 'bin/bundle'
+    - 'app/models/application_record.rb'
+Metrics/MethodLength:
+  Max: 30
+Metrics/BlockLength:
+  Max: 50
+Metrics/ModuleLength:
+  Max: 200
+Metrics/AbcSize:
+  Max: 20
+Style/OptionalBooleanParameter:
+  Enabled: false

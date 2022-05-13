@@ -4,8 +4,8 @@
     <div class="name">BAY TRAIL BIRD MAPPING</div>
   </div>
   <div class="nav">
-    <div class="nav-btn"><i class="fa-solid fa-magnifying-glass"></i></div>
-    <div class="nav-btn" id="navigation">
+    <div class="nav-btn" title="Search Locations" disabled><i class="fa-solid fa-magnifying-glass"></i></div>
+    <div class="nav-btn" id="navigation" title="Other Pages">
       <i class="fa-solid fa-ellipsis-vertical"></i>
       <nav>
         <%= link_to "Donate", "/donation" %>
@@ -13,34 +13,14 @@
         <%= link_to "Tips", "/tips" %>
       </nav>
     </div>
-    <div class="nav-btn info"><i class="fa-solid fa-info"></i></div>
+    <div class="nav-btn info" title="Tutorial" disabled><i class="fa-solid fa-info"></i></div>
   </div>
 </div>
 <main>
   <div id="leaflet-map"></div>
 </main>
-<div class="overlay" hidden>
-  <div class="expand-icon"></div>
-  <div class="content">
-    <div class="bird-name">Clark’s Grebe</div>
-    <div class="science-name">Aechmophorus clarkii</div>
-    <div class="bird-img-wrapper">
-      <img class="bird-img" src="/duck.png">
-    </div>
-    <div class="location-wrapper">
-      <div class="location">Loc</div>
-      <div class="separator"><i class="fa-solid fa-circle"></i></div>
-      <div class="distance">5 mi</div>
-    </div>
-    <div class="description-wrapper">
-      <div class="description-header">Description:</div>
-      <div class="description-content">
-        Clark's grebe is a North American waterbird species in the grebe family. Until the 1980s, it was thought to be a pale morph of the western grebe, which it resembles in size, range, and behavior. Intermediates between the two species are known.
-      </div>
-    </div>
-  </div>
-</div>
+<div class="overlay" hidden></div>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src = "app/javascript/channels/index.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src = "app/javascript/channels/index.js"></script>
 <%= javascript_include_tag 'index' %>

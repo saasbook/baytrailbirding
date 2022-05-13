@@ -45,10 +45,13 @@ $gold: #FFCD1A;
 	font-family: 'Mulish', sans-serif;
 }
 
+[disabled] {
+	cursor: not-allowed !important;
+}
+
 .header {
 	display: flex;
 	position: relative;
-	//background-color: red;
 	align-items: center;
 	justify-content: space-between;
 	margin: 10px;
@@ -107,14 +110,10 @@ $gold: #FFCD1A;
 	display: flex;
 	position: absolute;
 	background-color: $white;
-	// bottom: -30vh; // FIX
 	left: 10px;
-	// width: 100%;
 	width: 50vw;
 	flex-direction: column;
 	align-items: center;
-	// border-top-left-radius: 40px;
-	// border-top-right-radius: 40px;
 	border-radius: 10px;
 	box-shadow: 5px 5px 40px rgba($black, 0.3);
 
@@ -206,14 +205,14 @@ $gold: #FFCD1A;
 
 .location-icon {
 	text-align: center;
-	line-height: 280px;
+	line-height: 20px;
 	color: #3498DB;
 	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .location-icon-selected {
 	text-align: center;
-	line-height: 300px;
+	line-height: 20px;
 	color: #db3434;
 	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
