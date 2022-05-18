@@ -1,0 +1,6 @@
+plugins: 
+  eslint:
+    enabled: true
+    channel: "eslint-8"
+    config:
+      ignore_warnings: true
