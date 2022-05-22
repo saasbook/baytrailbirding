@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require 'vcr'
 
@@ -12,54 +14,48 @@ require 'vcr'
 #   end
 # end
 RSpec.describe EbirdHelper, type: :helper do
-  describe "getBirdData" do
-    it "given coords, it returns a nearby bird" do
+  describe 'get_bird_data' do
+    it 'given coords, it returns a nearby bird' do
       VCR.use_cassette('ebird/get_bird_from_cords') do
-        lat = 37.42
-        lng = -121.91
-        bird = getBirdData(lat,lng,1,1).first;
-        expect(hav_distance([lat,lng],[bird["lat"],bird["lng"]],true)).to be <= 25
+        lat = 37.42.to_f
+        lng = -121.91.to_f
+        bird = get_bird_data(lat, lng, 25).first
+        expect(hav_distance([lat, lng], [bird[:loc][:lat], bird[:loc][:lng]], true)).to be <= 25
       end
     end
   end
-  describe "getImageSrc" do
-    it "given data with a common name, returns an image" do
+  describe 'get_img_src' do
+    it 'given data with a common name, returns an image' do
       VCR.use_cassette('ebird/get_image_src/common_name') do
-        data = {
-          "comName" => "Canada Goose",
-          "sciName" => "Branta canadensis"
-        }
-        image = getImageSrc(data);
-        expect(image).to eq "https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg"
+        com = 'Canada Goose'
+        sci = 'Branta canadensis'
+        image = get_img_src(com, sci)
+        expect(image).to eq 'https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg'
       end
     end
-    it "given data with a scientific name, returns an image" do
+    it 'given data with a scientific name, returns an image' do
       VCR.use_cassette('ebird/get_image_src/scientific_name') do
-        data = {
-          "comName" => "Sora",
-          "sciName" => "porzana carolina"
-        }
-        image = getImageSrc(data);
-        expect(image).to eq "https://upload.wikimedia.org/wikipedia/commons/2/2d/Sora_%28Porzana_carolina%29.jpg"
+        com = 'Sora'
+        sci = 'porzana carolina'
+        image = get_img_src(com, sci)
+        expect(image).to eq 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Sora_%28Porzana_carolina%29.jpg'
       end
     end
-    it "given data with ambiguous names, returns no image" do
+    it 'given data with ambiguous names, returns no image' do
       VCR.use_cassette('ebird/get_image_src/ambiguous_names') do
-        data = {
-          "comName" => "Common x Barrow's Goldeneye (hybrid)",
-          "sciName" => "Bucephala clangula x islandica"
-        }
-        image = getImageSrc(data);
+        com = "Common x Barrow's Goldeneye (hybrid)"
+        sci = 'Bucephala clangula x islandica'
+        image = get_img_src(com, sci)
         expect(image).to eq nil
       end
     end
   end
-  describe "getImageFromName" do
-    it "given name, it returns an image" do
+  describe 'get_img_from_name' do
+    it 'given name, it returns an image' do
       VCR.use_cassette('ebird/get_image_from_name') do
-        name = "Canada Goose"
-        image = getImageFromName(name);
-        expect(image).to eq "https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg"
+        name = 'Canada Goose'
+        image = get_img_from_name(name)
+        expect(image).to eq 'https://upload.wikimedia.org/wikipedia/commons/4/40/Canada_goose_on_Seedskadee_NWR_%2827826185489%29.jpg'
       end
     end
   end

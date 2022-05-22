@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.ebird.org/v2/data/obs/geo/recent/?back=10&dist=25&lat=37.42&lng=-121.91&maxResults=1
+    uri: https://api.ebird.org/v2/data/obs/geo/recent/?back=10&dist=25&lat=37.42&lng=-121.91
     body:
       encoding: US-ASCII
       string: ''

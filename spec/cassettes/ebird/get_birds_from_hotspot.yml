@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ebird.org/v2/data/obs/L6530472/recent/?back=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-eBirdApiToken:
+      - 3nt7houcf01l
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Tue, 10 May 2022 08:23:36 GMT
+      expires:
+      - '0'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding, Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-xss-protection:
+      - 1; mode=block
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"speciesCode":"bknsti","comName":"Black-necked Stilt","sciName":"Himantopus
+        mexicanus","locId":"L6530472","locName":"Adobe Creek--north of US-101","obsDt":"2022-05-03
+        15:32","howMany":18,"lat":37.43515,"lng":-122.102342,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S108861940"},{"speciesCode":"wessan","comName":"Western
+        Sandpiper","sciName":"Calidris mauri","locId":"L6530472","locName":"Adobe
+        Creek--north of US-101","obsDt":"2022-05-03 15:32","howMany":3000,"lat":37.43515,"lng":-122.102342,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S108861940"},{"speciesCode":"forter","comName":"Forster''s
+        Tern","sciName":"Sterna forsteri","locId":"L6530472","locName":"Adobe Creek--north
+        of US-101","obsDt":"2022-05-03 15:32","howMany":11,"lat":37.43515,"lng":-122.102342,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S108861940"},{"speciesCode":"blkski","comName":"Black
+        Skimmer","sciName":"Rynchops niger","locId":"L6530472","locName":"Adobe Creek--north
+        of US-101","obsDt":"2022-05-03 15:32","howMany":80,"lat":37.43515,"lng":-122.102342,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S108861940"},{"speciesCode":"doccor","comName":"Double-crested
+        Cormorant","sciName":"Nannopterum auritum","locId":"L6530472","locName":"Adobe
+        Creek--north of US-101","obsDt":"2022-05-03 15:32","howMany":3,"lat":37.43515,"lng":-122.102342,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S108861940"},{"speciesCode":"cliswa","comName":"Cliff
+        Swallow","sciName":"Petrochelidon pyrrhonota","locId":"L6530472","locName":"Adobe
+        Creek--north of US-101","obsDt":"2022-05-03 15:32","howMany":14,"lat":37.43515,"lng":-122.102342,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S108861940"},{"speciesCode":"sonspa","comName":"Song
+        Sparrow","sciName":"Melospiza melodia","locId":"L6530472","locName":"Adobe
+        Creek--north of US-101","obsDt":"2022-05-03 15:32","howMany":2,"lat":37.43515,"lng":-122.102342,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S108861940"}]'
+  recorded_at: Tue, 10 May 2022 08:23:36 GMT
+recorded_with: VCR 6.0.0

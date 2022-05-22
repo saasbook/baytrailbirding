@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Create the facilities
 class CreateFacilities < ActiveRecord::Migration[6.1]
   def change
     create_table :facilities do |t|

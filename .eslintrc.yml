@@ -5,10 +5,12 @@ env:
 extends: 'eslint:recommended'
 parserOptions:
   ecmaVersion: 11
+  sourceType: module
+  allowImportExportEverywhere: true
 rules:
   indent:
     - error
-    - tab
+    - 2
   quotes:
     - error
     - single
@@ -52,7 +54,7 @@ rules:
     - getBeforeSet
   max-classes-per-file:
     - error
-    - 3
+    - 10
   no-caller: error
   no-constructor-return: error
   no-div-regex: warn
@@ -175,7 +177,7 @@ rules:
   max-depth: error
   max-len:
     - error
-    - code: 120
+    - code: 150
       ignoreUrls: true
       ignoreTemplateLiterals: true
   max-nested-callbacks: error
@@ -215,7 +217,8 @@ rules:
   nonblock-statement-body-position: error
   object-curly-newline:
     - error
-    - minProperties: 1
+    - multiline: true
+      consistent: true
   object-curly-spacing:
     - error
     - always
@@ -289,3 +292,4 @@ rules:
   yield-star-spacing: error
   no-undef: warn
   no-var: error
+  no-console: error
